@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -161,15 +160,15 @@ const translations = {
         memoLimitReached: 'You have reached the daily limit of 5 memos.',
         aiTranscriptionFailed: 'Voice transcription is not currently supported. Please use text memos.',
         language: 'Language',
-        korean: 'Korean',
+        korean: 'Koreano',
         english: 'English',
         chinese: 'Chinese',
         japanese: 'Japanese',
         russian: 'Russian',
         vietnamese: 'Vietnamese',
-        multilingualPromo: 'SermonNote는 다언어를 지원합니다!',
-        addComment: 'Add Comment',
-        addCrossReferences: 'Add Cross References',
+        multilingualPromo: 'SermonNote hiện đã hỗ trợ nhiều ngôn ngữ!',
+        addComment: 'Magdagdag ng Komentaryo',
+        addCrossReferences: 'Magdagdag ng Cross-References',
     },
     zh: {
         sermonAssistantTitle: '讲道助手',
@@ -236,7 +235,7 @@ const translations = {
         japanese: '日本語',
         russian: 'ロシア語',
         vietnamese: 'ベトナム語',
-        multilingualPromo: 'SermonNoteは多言語に対応しました！',
+        multilingualPromo: 'SermonNote는 다언어를 지원합니다!',
         addComment: '注釈を追加',
         addCrossReferences: '相互参照を追加',
     },
@@ -284,19 +283,19 @@ const translations = {
         goBack: '戻る',
         logout: 'ログアウト',
         chooseSermonType: '説教タイプの選択',
-        chooseSermonTypeDescription: '作成したい説教タイプを選択してください。',
-        sermonAssistantIntro: 'AIによる注釈と説教草稿を即座に生成します。',
+        chooseSermonTypeDescription: '作成したい説교タイプを選択してください。',
+        sermonAssistantIntro: 'AIによる注釈と説교草稿を即座に生成します。',
         expositoryIntro: '聖書的真理を深く探求し、正確に解釈するためのツールです。',
         expositoryIntro2: '聖書的真理を深く探求し、正確に解釈するためのツールです。聖書箇所を入力すると、AIが解説を提供し、それを基に説教文を作成できます。',
         realLifeIntro: '日々の生活に浸透する神の言葉の力についての説教を作成します。',
         quickMemoIntro: '断片的なインスピレーションを繋ぎ合わせて説教を作成します。',
         noConversationError: 'まずAIとの対話を開始してください。',
         commentaryLimitError: '今月の注釈生成回数をすべて使用しました。サブスクリプションプランをご確認ください。',
-        sermonLimitError: '今月の説教作成回数をすべて使用しました。サブスクリプションプランをご確認ください。',
+        sermonLimitError: '今月の説교作成回수를 모두 사용했습니다.サブスクリプションプランをご確認ください。',
         generationFailed: '生成に失敗しました。もう一度お試しください。',
         initialPrompt: '聖書箇所や説教のテーマについてAIに質問して始めてください。',
         upgradeToPremium: 'プレミアムにアップグレード',
-        memoLimitReached: '1日のメモ作成回数上限である5回に達しました。',
+        memoLimitReached: '1日のメモ作成回수上限である5回に達しました。',
         aiTranscriptionFailed: '音声書き起こし機能は現在サポートされていません。テキストメモをご利用ください。',
         language: '言語',
         korean: '韓国語',
@@ -304,7 +303,7 @@ const translations = {
         chinese: '中国語',
         japanese: '日本語',
         russian: 'ロシア語',
-        vietnamese: 'ベトナム어',
+        vietnamese: 'ベト남어',
         multilingualPromo: 'SermonNote는 다언어를 지원합니다!',
         addComment: '注釈を追加',
         addCrossReferences: '相互参照を追加',
@@ -374,16 +373,22 @@ const translations = {
         japanese: 'Hapon',
         russian: 'Ruso',
         vietnamese: 'Vietnamese',
-        multilingualPromo: 'SermonNote hiện đã hỗ trợ nhiều ngôn ngữ!',
+        multilingualPromo: 'SermonNote는 다언어를 지원합니다!',
         addComment: 'Magdagdag ng Komentaryo',
         addCrossReferences: 'Magdagdag ng Cross-References',
     },
 };
 
 // Simple function for text translation
-const t = (key, lang) => {
+const t = (key, lang, ...args) => {
     const selectedLang = translations[lang] ? lang : 'ko';
-    return translations[selectedLang]?.[key] || key;
+    const text = translations[selectedLang]?.[key];
+    
+    if (typeof text === 'function') {
+        return text(...args);
+    }
+    
+    return text || key;
 };
 
 // Custom Hook for Sermon Generation Logic
@@ -395,12 +400,12 @@ const useSermonGeneration = (userId, setSermonDraft, setErrorMessage, canGenerat
         if (!user) { openLoginModal(); return; }
         
         if (usageType === 'sermon' && !canGenerateSermon) { 
-            setErrorMessage(t('sermonLimitError', lang)); 
+            setErrorMessage(t('sermonLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))); 
             onLimitReached(); 
             return; 
         }
         if (usageType === 'commentary' && !canGenerateCommentary) { 
-            setErrorMessage(t('commentaryLimitError', lang)); 
+            setErrorMessage(t('commentaryLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))); 
             onLimitReached(); 
             return; 
         }
@@ -420,7 +425,7 @@ const useSermonGeneration = (userId, setSermonDraft, setErrorMessage, canGenerat
         } finally {
             setIsLoading(false);
         }
-    }, [userId, sermonCount, commentaryCount, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, lang, user, openLoginModal, onLimitReached]);
+    }, [userId, sermonCount, commentaryCount, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, lang, user, openLoginModal, onLimitReached, userSubscription]);
 
     const reviseDraft = useCallback(async (selectedText) => {
         if (!user) { openLoginModal(); return; }
@@ -488,6 +493,7 @@ const QuickMemoModal = ({ isOpen, onClose, onAddMemo, memoCount, memoLimit, lang
                 setIsRecording(false);
                 setIsLoading(true);
                 const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm; codecs=opus' });
+                
                 const reader = new FileReader();
                 reader.onloadend = async () => {
                     const base64Audio = reader.result.split(',')[1];
@@ -501,11 +507,11 @@ const QuickMemoModal = ({ isOpen, onClose, onAddMemo, memoCount, memoLimit, lang
                         if (data.transcript) {
                             setMemoText(data.transcript);
                         } else {
-                            setModalErrorMessage(data.message || t('transcriptionFailed', lang));
+                            setModalErrorMessage(data.message || t('aiTranscriptionFailed', lang));
                         }
                     } catch (error) {
                         console.error('Transcription failed:', error);
-                        setModalErrorMessage(t('transcriptionFailedError', lang));
+                        setModalErrorMessage(t('aiTranscriptionFailed', lang));
                     } finally {
                         setIsLoading(false);
                     }
@@ -529,10 +535,13 @@ const QuickMemoModal = ({ isOpen, onClose, onAddMemo, memoCount, memoLimit, lang
         if (memoText.trim() === '' || isLoading) { setModalErrorMessage(t('enterMemoContent', lang)); return; }
         
         const currentMemoCount = await checkDailyMemoLimit(user.uid);
-        if (currentMemoCount >= memoLimit) { setModalErrorMessage(t('memoLimitReached', lang)(memoLimit)); return; }
+        if (currentMemoCount >= memoLimit) {
+            setModalErrorMessage(t('memoLimitReached', lang, memoLimit));
+            return;
+        }
         
         try {
-            await addQuickMemo(user.uid, memoText); 
+            await addQuickMemo(user.uid, memoText);  
             setMemoText('');
             onClose();
             if (onMemoAdded) {
@@ -558,7 +567,7 @@ const QuickMemoModal = ({ isOpen, onClose, onAddMemo, memoCount, memoLimit, lang
                     {modalErrorMessage && (<div className="bg-red-100 text-red-700 p-3 rounded-xl">{modalErrorMessage}</div>)}
                     <div>
                         <p className="text-sm text-gray-500">
-                            {t('memoLimitMessage', lang)(memoLimit, memoCount)}
+                            {t('memoLimitMessage', lang, memoLimit, memoCount)}
                         </p>
                     </div>
                     <textarea
@@ -605,13 +614,14 @@ const ExpositorySermonComponent = ({ setSermonDraft, userId, commentaryCount, us
 
     const handleGetCommentaryAndReferences = useCallback(async () => {
         if (!user) { openLoginModal(); return; }
-        if (!canGenerateCommentary) { setErrorMessage(t('commentaryLimitError', lang)); onLimitReached(); return; }
+        if (!canGenerateCommentary) { setErrorMessage(t('commentaryLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))); onLimitReached(); return; }
         if (scriptureInput.trim() === '') { setErrorMessage(t('enterScriptureReference', lang)); return; }
 
         setCommentaryLoading(true);
         setCommentary(t('generating', lang));
         setCrossReferences([]);
         setErrorMessage('');
+
         try {
             const promptText = `Based on the following scripture reference, provide a detailed expository commentary and a list of 3-5 relevant cross-reference verses with a brief explanation for each. Format the response with a clear "Commentary:" section and a "Cross-References:" section.
             Scripture: "${scriptureInput}"
@@ -638,10 +648,11 @@ const ExpositorySermonComponent = ({ setSermonDraft, userId, commentaryCount, us
         } catch (error) {
             setCommentary(t('generationFailed', lang));
             console.error(error);
+            setErrorMessage(t('generationFailed', lang));
         } finally {
             setCommentaryLoading(false);
         }
-    }, [scriptureInput, setCommentary, setCrossReferences, setErrorMessage, canGenerateCommentary, userId, commentaryCount, lang, user, openLoginModal, onLimitReached]);
+    }, [scriptureInput, setCommentary, setCrossReferences, setErrorMessage, canGenerateCommentary, userId, commentaryCount, lang, user, openLoginModal, onLimitReached, userSubscription]);
 
     const handleAddSelectedText = useCallback((textToAdd) => {
         if (textToAdd && textToAdd.trim()) {
@@ -674,7 +685,7 @@ const ExpositorySermonComponent = ({ setSermonDraft, userId, commentaryCount, us
             
             {userSubscription !== 'premium' && (
                 <p className="text-sm text-gray-500 mb-4">
-                    {t('commentaryLimit', lang)(Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))}
+                    {t('commentaryLimit', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))}
                 </p>
             )}
 
@@ -756,19 +767,21 @@ const RealLifeSermonComponent = ({ setSermonDraft, userId, sermonCount, userSubs
     const [topicInput, setTopicInput] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [selectedSuggestion, setSelectedSuggestion] = useState(null);
-    const [suggestionsLoading, setSuggestionsLoading] = useState(false);
-    
+    const [commentary, setCommentary] = useState('');     
+    const [commentaryLoading, setCommentaryLoading] = useState(false);  
+
     const { generateSermon, reviseDraft, isLoading: sermonIsLoading } = useSermonGeneration(userId, setSermonDraft, setErrorMessage, canGenerateSermon, true, lang, user, openLoginModal, onLimitReached, sermonCount, null);
 
     const handleSuggest = useCallback(async () => {
         if (!user) { openLoginModal(); return; }
-        if (!canGenerateSermon) { setErrorMessage(t('sermonLimitError', lang)); onLimitReached(); return; }
+        if (!canGenerateSermon) { setErrorMessage(t('sermonLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))); onLimitReached(); return; }
         if (topicInput.trim() === '') { setErrorMessage(t('enterTopic', lang)); return; }
         
         setSuggestionsLoading(true);
         setSermonDraft(t('generatingSuggestions', lang));
         setSuggestions([]);
         setErrorMessage('');
+
         try {
             const promptText = `Based on the following real-life topic, suggest 3 relevant scripture verses and 3 sermon themes in a JSON array format. The JSON array should contain objects with keys "verse" and "theme". Topic: "${topicInput}"`;
             const generationConfig = {
@@ -795,7 +808,7 @@ const RealLifeSermonComponent = ({ setSermonDraft, userId, sermonCount, userSubs
         } finally {
             setSuggestionsLoading(false);
         }
-    }, [topicInput, setSermonDraft, setErrorMessage, canGenerateSermon, lang, user, openLoginModal, onLimitReached]);
+    }, [topicInput, setSermonDraft, setErrorMessage, canGenerateSermon, lang, user, openLoginModal, onLimitReached, userSubscription, sermonCount]);
 
     const handleGenerateSermon = useCallback(async () => {
         if (!user) { openLoginModal(); return; }
@@ -811,7 +824,7 @@ const RealLifeSermonComponent = ({ setSermonDraft, userId, sermonCount, userSubs
 
             {userSubscription !== 'premium' && (
                 <p className="text-sm text-gray-500 mb-4">
-                    {t('sermonLimit', lang)(Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))}
+                    {t('sermonLimit', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))}
                 </p>
             )}
 
@@ -836,7 +849,7 @@ const RealLifeSermonComponent = ({ setSermonDraft, userId, sermonCount, userSubs
                 <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left">
                     <p className="font-semibold text-gray-800 mb-2">{t('aiSuggestions', lang)}</p>
                     <ul className="space-y-2">
-                        {suggestions.map((sug, index) => (
+                        {suggestions && suggestions.length > 0 && suggestions.map((sug, index) => (
                             <li key={index} className={`p-3 rounded-lg cursor-pointer transition ${selectedSuggestion && selectedSuggestion.verse === sug.verse ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
                                 onClick={() => setSelectedSuggestion(sug)}>
                                 <p className="font-semibold">{sug.verse}</p>
@@ -947,23 +960,20 @@ const QuickMemoSermonComponent = ({ setSermonDraft, userId, sermonCount, userSub
 
     const handleGetCommentary = useCallback(async () => {
         if (!user) { openLoginModal(); return; }
-        if (!selectedMemo || !selectedSuggestion) { setErrorMessage(t('selectMemoAndSuggestion', lang)); return; }
-        if (!canGenerateCommentary) { setErrorMessage(t('commentaryLimitError', lang)); onLimitReached(); return; }
-
+        if (!selectedSuggestion) { setErrorMessage('Please select a suggestion first.'); return; }
+        
         setCommentaryLoading(true);
         setCommentary(t('generating', lang));
-        setErrorMessage('');
         try {
-            const promptText = `Based on the following note and scripture, provide a detailed expository commentary in ${lang === 'ko' ? 'Korean' : 'English'}. Note: "${selectedMemo.content}". Scripture: "${selectedSuggestion.verse}"`;
+            const promptText = `Commentary for: ${selectedSuggestion.verse}`;
             const text = await callGeminiAPI(promptText);
             setCommentary(text);
-            await incrementUsageCount('commentary', userId, commentaryCount, setErrorMessage);
         } catch (error) {
-            setCommentary(t('generationFailed', lang));
-            console.error(error);
+            setCommentary('Failed to generate');
         } finally {
             setCommentaryLoading(false);
         }
+
     }, [selectedMemo, selectedSuggestion, canGenerateCommentary, setCommentary, setErrorMessage, lang, onLimitReached, user, openLoginModal, userId, commentaryCount]);
 
     const handleGenerateSermon = useCallback(async () => {
@@ -981,7 +991,7 @@ const QuickMemoSermonComponent = ({ setSermonDraft, userId, sermonCount, userSub
 
             {userSubscription !== 'premium' && (
                 <p className="text-sm text-gray-500 mb-4">
-                    {t('sermonLimit', lang)(Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))}
+                    {t('sermonLimit', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))}
                 </p>
             )}
 
@@ -1106,7 +1116,7 @@ const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, se
 
     const handleSendMessage = useCallback(async () => {
         if (!user) { openLoginModal(); return; }
-        if (!canGenerateCommentary) { setErrorMessage(t('commentaryLimitError', currentLang)); setSelectedSermonType('premium-subscription'); return; }
+        if (!canGenerateCommentary) { setErrorMessage(t('commentaryLimitError', currentLang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))); setSelectedSermonType('premium-subscription'); return; }
         if (sermonInput.trim() === '') { setErrorMessage(t('enterMessage', currentLang)); return; }
 
         const newChatHistory = [...chatHistory, { role: 'user', text: sermonInput }];
@@ -1130,7 +1140,7 @@ const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, se
             setChatHistory(prev => [...prev, { role: 'assistant', text: t('generationFailed', currentLang) }]);
             console.error(error);
         }
-    }, [sermonInput, setSermonInput, setErrorMessage, canGenerateCommentary, chatHistory, currentLang, openLoginModal, user, setSelectedSermonType, userId, commentaryCount]);
+    }, [sermonInput, setSermonInput, setErrorMessage, canGenerateCommentary, chatHistory, currentLang, openLoginModal, user, setSelectedSermonType, userId, commentaryCount, userSubscription]);
 
     const handleGenerateSermonFromChat = useCallback(async () => {
         if (chatHistory.length === 0) { setErrorMessage(t('noConversationError', currentLang)); return; }
@@ -1155,11 +1165,14 @@ const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, se
     const handleLimitReached = useCallback(() => {
         setSelectedSermonType('premium-subscription');
     }, [setSelectedSermonType]);
-    
+
     const handleAddMemo = useCallback(async (content) => {
         if (!user) { openLoginModal(); return; }
-        const isLimited = await checkDailyMemoLimit(user.uid, 5);
-        if (isLimited >= 5) { setErrorMessage(t('memoLimitReached', currentLang)(5, memoCountToday)); return; }
+        const currentMemoCount = await checkDailyMemoLimit(user.uid);
+        if (currentMemoCount >= 5) {
+            setErrorMessage(t('memoLimitReached', currentLang, 5));
+            return;
+        }
         try {
             await addQuickMemo(user.uid, content);
             setSelectedSermonType('quick-memo-sermon');
@@ -1167,7 +1180,8 @@ const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, se
             setErrorMessage(t('failedToSaveMemo', currentLang));
             console.error(error);
         }
-    }, [user, openLoginModal, setErrorMessage, currentLang, setSelectedSermonType, memoCountToday]);
+    }, [user, openLoginModal, setErrorMessage, currentLang, setSelectedSermonType]);
+
 
     const renderSermonType = () => {
         switch (selectedSermonType) {
@@ -1178,12 +1192,12 @@ const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, se
                         <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">{t('assistantDescription', currentLang)}</p>
                         {userSubscription !== 'premium' && (
                             <p className="text-sm text-gray-500 mb-4">
-                                {t('commentaryLimit', currentLang)(Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))}
+                                {t('commentaryLimit', currentLang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))}
                             </p>
                         )}
                         {errorMessage && (
                             <div className="bg-red-200 text-red-800 p-4 rounded-xl mb-4 max-w-2xl mx-auto">
-                                {t('errorMessage', currentLang)(errorMessage)}
+                                {t('errorMessage', currentLang, errorMessage)}
                             </div>
                         )}
                         <div className="flex flex-col items-center space-y-4 max-w-2xl mx-auto w-full">
@@ -1276,7 +1290,7 @@ const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, se
                             </button>
                         </div>
                         <div className="mt-12">
-                                <button
+                                 <button
                                     onClick={user ? () => setSelectedSermonType('premium-subscription') : openLoginModal}
                                     className="px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg transition duration-300 text-2xl"
                                 >
@@ -1300,7 +1314,7 @@ const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, se
                 </div>
                 <div className="flex items-center space-x-4">
                     {user && (
-                        <p className="text-sm text-gray-600 hidden sm:block">{t('welcome', currentLang)(user.email)}</p>
+                        <p className="text-sm text-gray-600 hidden sm:block">{t('welcome', currentLang, user.email)}</p>
                     )}
                     <select
                         onChange={(e) => setLang(e.target.value)}
@@ -1358,4 +1372,5 @@ const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, se
         </div>
     );
 };
+
 export default SermonAssistantComponent;
