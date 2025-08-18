@@ -530,29 +530,29 @@ const QuickMemoModal = ({ isOpen, onClose, onAddMemo, memoCount, memoLimit, lang
         }
     };
 
-    const handleAddMemo = async () => {
-        if (!user) { openLoginModal(); return; }
-        if (memoText.trim() === '' || isLoading) { setModalErrorMessage(t('enterMemoContent', lang)); return; }
-        
-        const currentMemoCount = await checkDailyMemoLimit(user.uid);
-        if (currentMemoCount >= memoLimit) {
-            setModalErrorMessage(t('memoLimitReached', lang, memoLimit));
-            return;
+  const handleAddMemo = async () => {
+    if (!user) { openLoginModal(); return; }
+    if (memoText.trim() === '' || isLoading) { setModalErrorMessage(t('enterMemoContent', lang)); return; }
+    
+    const currentMemoCount = await checkDailyMemoLimit(user.uid);
+    if (currentMemoCount >= memoLimit) {
+        setModalErrorMessage(t('memoLimitReached', lang, memoLimit));
+        return;
+    }
+    
+    try {
+        await addQuickMemo(user.uid, memoText);  
+        setMemoText('');
+        onClose();
+        if (onMemoAdded) {
+            onMemoAdded();
         }
-        
-        try {
-            await addQuickMemo(user.uid, memoText);  
-            setMemoText('');
-            onClose();
-            if (onMemoAdded) {
-                onMemoAdded();
-            }
-            setModalErrorMessage('');
-        } catch (error) {
-            setModalErrorMessage(t('failedToSaveMemo', lang));
-            console.error(error);
-        }
-    };
+        setModalErrorMessage('');
+    } catch (error) {
+        setModalErrorMessage(t('failedToSaveMemo', lang));
+        console.error(error);
+    }
+};
 
     if (!isOpen) return null;
 
@@ -1374,3 +1374,4 @@ const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, se
 };
 
 export default SermonAssistantComponent;
+
