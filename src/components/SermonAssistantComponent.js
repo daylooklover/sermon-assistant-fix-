@@ -25,10 +25,11 @@ const FullscreenIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24"
 const MicIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mic"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>);
 const BookmarkIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bookmark"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>);
 const RealLifeIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>);
-const QuickMemoIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clipboard-list"><rect width="8" height="4" x="8" y="2"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>);
-const GoBackIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>);
+const QuickMemoIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clipboard-list"><rect width="8" height="4" x="8" y="2"/><path d="M16 4h2a2 2 0 0 1-2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>);
+const GoBackIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucude-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>);
 const CheckIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check text-green-500"><path d="M20 6 9 17l-5-5"/></svg>);
 const BibleIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-book-open-text"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/><path d="M6 8h2"/><path d="M6 12h2"/><path d="M16 8h2"/><path d="M16 12h2"/></svg>);
+
 
 // Language specific text data object
 const translations = {
@@ -159,14 +160,14 @@ const translations = {
         upgradeToPremium: 'Upgrade to Premium',
         memoLimitReached: 'You have reached the daily limit of 5 memos.',
         aiTranscriptionFailed: 'Voice transcription is not currently supported. Please use text memos.',
-        language: 'Language',
+        language: 'Wika',
         korean: 'Koreano',
         english: 'Ingles',
         chinese: 'Tsino',
         japanese: 'Hapon',
         russian: 'Ruso',
         vietnamese: 'Vietnamese',
-        multilingualPromo: 'SermonNote hiện đã hỗ trợ nhiều ngôn ngữ!',
+        multilingualPromo: 'SermonNote는 다언어를 지원합니다!',
         addComment: 'Magdagdag ng Komentaryo',
         addCrossReferences: 'Magdagdag ng Cross-References',
     },
@@ -194,22 +195,47 @@ const translations = {
         suggestScriptureAndThemes: '获取经文和主题建议',
         aiSuggestions: 'AI建议：',
         quickMemoSermonTitle: '快速备忘录关联讲道',
-        quickMemoDescription: '将零散的灵感编织成一篇完整的讲도. ',
-        noConversationError: '请先与AI开始对话。',
-        commentaryLimitError: '您本月的注释生成次数已用完。请查看您的订阅方案。',
-        sermonLimitError: '您本月的讲도稿撰写次数已用完。请查看您的订阅方案。',
-        generationFailed: '生成失败。请重试。',
-        initialPrompt: '请向AI询问圣경经文或讲도 주제, 即可开始。',
-        upgradeToPremium: '升级至高级版',
-        memoLimitReached: '您已达到每日备忘录撰写上限5条。',
-        aiTranscriptionFailed: '目前不支持语音转录功能。请使用文字备忘录。',
-        language: '语言',
-        korean: '한국어',
-        english: '영어',
+        quickMemoDescription: '将零散的灵感编织成一篇完整的讲道。',
+        myMemos: '我的メモ：',
+        selectedMemo: '選択されたメモ：',
+        generateSermonFromMemo: 'メモから説교文を作成',
+        editWithAiTitle: 'AIでテキストを編集',
+        selectedContent: '選択した内容：',
+        summarize: '要約',
+        elaborate: '詳細な説明',
+        rewrite: '文体修正',
+        findVerse: '聖書箇所を検索',
+        cancel: 'キャンセル',
+        applyChanges: '変更を適用',
+        save: '保存',
+        edit: '編集',
+        print: '印刷',
+        close: '閉じる',
+        welcome: (userEmail) => `ようこそ、${userEmail || '匿名ユーザー'}さん！`,
+        goBack: '戻る',
+        logout: 'ログアウト',
+        chooseSermonType: '説教タイプの選択',
+        chooseSermonTypeDescription: '作成したい説教タイプを選択してください。',
+        sermonAssistantIntro: 'AIによる注釈と説教草稿を即座に生成します。',
+        expositoryIntro: '聖書的真理を深く探求し、正確に解釈するためのツールです。',
+        expositoryIntro2: '聖書的真理を深く探求し、正確に解釈するためのツールです。聖書箇所を入力すると、AIが解説を提供し、それを基に説教文を作成できます。',
+        realLifeIntro: '日々の生活に浸透する神の言葉の力についての説教を作成します。',
+        quickMemoIntro: '断片的なインスピレーションを繋ぎ合わせて説教を作成します。',
+        noConversationError: 'まずAIとの対話を開始してください。',
+        commentaryLimitError: '今月の注釈生成回数をすべて使用しました。サブスクリプションプランをご確認ください。',
+        sermonLimitError: '今月の説教作成回수를 모두 사용했습니다。サブスクリプションプランをご確認ください。',
+        generationFailed: '生成に失敗しました。もう一度お試しください。',
+        initialPrompt: '聖書箇所や説教のテーマについてAIに質問して始めてください。',
+        upgradeToPremium: 'プレミアムにアップグレード',
+        memoLimitReached: '1日のメモ作成回数上限である5回に達しました。',
+        aiTranscriptionFailed: '音声書き起こし機能は現在サポートされていません。テキストメモをご利用ください。',
+        language: '言語',
+        korean: '韓国語',
+        english: '英語',
         chinese: '中国語',
         japanese: '日本語',
         russian: 'ロシア語',
-        vietnamese: 'ベト남어',
+        vietnamese: 'ベトナム語',
         multilingualPromo: 'SermonNote는 다언어를 지원합니다!',
         addComment: '注釈を追加',
         addCrossReferences: '相互参照を追加',
@@ -237,11 +263,11 @@ const translations = {
         realLifeDescription: '実際の出来事やテーマに対する聖書的な適用説教を作成します。',
         suggestScriptureAndThemes: '聖書箇所とテーマの提案を受ける',
         aiSuggestions: 'AIの提案：',
-        quickMemoSermonTitle: 'クイックメモ連携説교',
-        quickMemoDescription: '断片的なインスピレーションを繋ぎ合わせて説교を作成します。',
+        quickMemoSermonTitle: 'クイックメモ連携説教',
+        quickMemoDescription: '断片的なインスピレーションを繋ぎ合わせて説教を作成します。',
         myMemos: '私のメモ：',
         selectedMemo: '選択されたメモ：',
-        generateSermonFromMemo: 'メモから説교文を作成',
+        generateSermonFromMemo: 'メモから説教文を作成',
         editWithAiTitle: 'AIでテキストを編集',
         selectedContent: '選択した内容：',
         summarize: '要約',
@@ -258,19 +284,19 @@ const translations = {
         goBack: '戻る',
         logout: 'ログアウト',
         chooseSermonType: '説教タイプの選択',
-        chooseSermonTypeDescription: '作成したい説교タイプを選択してください。',
-        sermonAssistantIntro: 'AIによる注釈と説교草稿を即座に生成します。',
+        chooseSermonTypeDescription: '作成したい説教タイプを選択してください。',
+        sermonAssistantIntro: 'AIによる注釈と説教草稿を即座に生成します。',
         expositoryIntro: '聖書的真理を深く探求し、正確に解釈するためのツールです。',
         expositoryIntro2: '聖書的真理を深く探求し、正確に解釈するためのツールです。聖書箇所を入力すると、AIが解説を提供し、それを基に説教文を作成できます。',
         realLifeIntro: '日々の生活に浸透する神の言葉の力についての説教を作成します。',
         quickMemoIntro: '断片的なインスピレーションを繋ぎ合わせて説教を作成します。',
         noConversationError: 'まずAIとの対話を開始してください。',
-        commentaryLimitError: '今月の注釈生成回数をすべて使用しました。サブスクリプションプランをご確認ください。',
-        sermonLimitError: '今月の説교作成回수를 모두 사용했습니다。サブスクリプションプランをご確認ください。',
+        commentaryLimitError: '今月の注釈生成回수를 모두 사용했습니다。サブスクリプションプランをご確認ください。',
+        sermonLimitError: '今月の説教作成回数をすべて使用しました。サブスクリプションプランをご確認ください。',
         generationFailed: '生成に失敗しました。もう一度お試しください。',
         initialPrompt: '聖書箇所や説教のテーマについてAIに質問して始めてください。',
         upgradeToPremium: 'プレミアムにアップグレード',
-        memoLimitReached: '1日のメモ作成回수上限である5回に達しました。',
+        memoLimitReached: '1日のメモ作成回数上限である5回に達しました。',
         aiTranscriptionFailed: '音声書き起こし機能は現在サポートされていません。テキストメモをご利用ください。',
         language: '言語',
         korean: '韓国語',
@@ -358,994 +384,1032 @@ const translations = {
 const t = (key, lang, ...args) => {
     const selectedLang = translations[lang] ? lang : 'ko';
     const text = translations[selectedLang]?.[key];
-    
+    
     if (typeof text === 'function') {
         return text(...args);
     }
-    
+    
     return text || key;
 };
 
 // Custom Hook for Sermon Generation Logic
 const useSermonGeneration = (userId, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, lang, user, openLoginModal, onLimitReached, sermonCount, commentaryCount, userSubscription) => {
-    
-    const [isLoading, setIsLoading] = useState(false);
-    
-    const generateSermon = useCallback(async (promptText, usageType = 'sermon') => {
-        if (!user) { openLoginModal(); return; }
-        
-        if (usageType === 'sermon' && !canGenerateSermon) { 
-            setErrorMessage(t('sermonLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))); 
-            onLimitReached(); 
-            return; 
-        }
-        if (usageType === 'commentary' && !canGenerateCommentary) { 
-            setErrorMessage(t('commentaryLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))); 
-            onLimitReached(); 
-            return; 
-        }
+    
+    const [isLoading, setIsLoading] = useState(false);
+    
+    const generateSermon = useCallback(async (promptText, usageType = 'sermon') => {
+        if (!user) { openLoginModal(); return; }
+        
+        if (usageType === 'sermon' && !canGenerateSermon) { 
+            setErrorMessage(t('sermonLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))); 
+            onLimitReached(); 
+            return; 
+        }
+        if (usageType === 'commentary' && !canGenerateCommentary) { 
+            setErrorMessage(t('commentaryLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))); 
+            onLimitReached(); 
+            return; 
+        }
 
-        setIsLoading(true);
-        setSermonDraft(t('generating', lang));
-        setErrorMessage('');
+        setIsLoading(true);
+        setSermonDraft(t('generating', lang));
+        setErrorMessage('');
 
-        try {
-            const text = await callGeminiAPI(promptText);
-            setSermonDraft(text);
-            await incrementUsageCount(usageType, userId, usageType === 'sermon' ? sermonCount : commentaryCount, setErrorMessage);
-        } catch (error) {
-            setSermonDraft(t('generationFailed', lang));
-            console.error(error);
-            setErrorMessage(t('generationFailed', lang));
-        } finally {
-            setIsLoading(false);
-        }
-    }, [userId, sermonCount, commentaryCount, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, lang, user, openLoginModal, onLimitReached, userSubscription]);
+        try {
+            const text = await callGeminiAPI(promptText);
+            setSermonDraft(text);
+            await incrementUsageCount(usageType, userId, usageType === 'sermon' ? sermonCount : commentaryCount, setErrorMessage);
+        } catch (error) {
+            setSermonDraft(t('generationFailed', lang));
+            console.error(error);
+            setErrorMessage(t('generationFailed', lang));
+        } finally {
+            setIsLoading(false);
+        }
+    }, [userId, sermonCount, commentaryCount, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, lang, user, openLoginModal, onLimitReached, userSubscription]);
 
-    const reviseDraft = useCallback(async (selectedText) => {
-        if (!user) { openLoginModal(); return; }
-        if (!selectedText) { setErrorMessage(t('selectContentToEdit', lang)); return; }
+    const reviseDraft = useCallback(async (selectedText) => {
+        if (!user) { openLoginModal(); return; }
+        if (!selectedText) { setErrorMessage(t('selectContentToEdit', lang)); return; }
 
-        const comment = prompt(t('editWithAiTitle', lang));
-        if (!comment) return;
+        const comment = prompt(t('editWithAiTitle', lang));
+        if (!comment) return;
 
-        setIsLoading(true);
-        setSermonDraft(t('generating', lang));
-        setErrorMessage('');
-        try {
-            const promptText = `Based on the following user-selected text and a user comment, please revise the text.
-            User-selected text: "${selectedText}"
-            User comment: "${comment}"
-            
-            Please provide the revised text in ${lang === 'ko' ? 'Korean' : 'English'}.`;
-            
-            const revisedText = await callGeminiAPI(promptText);
-            setSermonDraft(revisedText);
-        } catch (error) {
-            setSermonDraft(t('generationFailed', lang));
-            console.error(error);
-            setErrorMessage(t('generationFailed', lang));
-        } finally {
-            setIsLoading(false);
-        }
-    }, [user, openLoginModal, setSermonDraft, setErrorMessage, lang]);
+        setIsLoading(true);
+        setSermonDraft(t('generating', lang));
+        setErrorMessage('');
+        try {
+            const promptText = `Based on the following user-selected text and a user comment, please revise the text.
+            User-selected text: "${selectedText}"
+            User comment: "${comment}"
+            
+            Please provide the revised text in ${lang === 'ko' ? 'Korean' : 'English'}.`;
+            
+            const revisedText = await callGeminiAPI(promptText);
+            setSermonDraft(revisedText);
+        } catch (error) {
+            setSermonDraft(t('generationFailed', lang));
+            console.error(error);
+            setErrorMessage(t('generationFailed', lang));
+        } finally {
+            setIsLoading(false);
+        }
+    }, [user, openLoginModal, setSermonDraft, setErrorMessage, lang]);
 
-    return { generateSermon, reviseDraft, isLoading };
+    return { generateSermon, reviseDraft, isLoading };
 };
 
 // QuickMemoModal Component
 const QuickMemoModal = ({ isOpen, onClose, onAddMemo, memoCount, memoLimit, lang, openLoginModal, user, onMemoAdded }) => {
-    const [memoText, setMemoText] = useState('');
-    const [isRecording, setIsRecording] = useState(false);
-    const mediaRecorderRef = useRef(null);
-    const audioChunksRef = useRef([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [modalErrorMessage, setModalErrorMessage] = useState('');
+    const [memoText, setMemoText] = useState('');
+    const [isRecording, setIsRecording] = useState(false);
+    const mediaRecorderRef = useRef(null);
+    const audioChunksRef = useRef([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [modalErrorMessage, setModalErrorMessage] = useState('');
 
-    useEffect(() => {
-        if (isOpen) {
-            setModalErrorMessage('');
-        }
-    }, [isOpen]);
+    useEffect(() => {
+        if (isOpen) {
+            setModalErrorMessage('');
+        }
+    }, [isOpen]);
 
-    const handleStartRecording = async () => {
-        if (isRecording) {
-            mediaRecorderRef.current?.stop();
-            return;
-        }
+    const handleStartRecording = async () => {
+        if (isRecording) {
+            mediaRecorderRef.current?.stop();
+            return;
+        }
 
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            const mediaRecorder = new MediaRecorder(stream);
-            mediaRecorderRef.current = mediaRecorder;
-            audioChunksRef.current = [];
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            const mediaRecorder = new MediaRecorder(stream);
+            mediaRecorderRef.current = mediaRecorder;
+            audioChunksRef.current = [];
 
-            mediaRecorder.ondataavailable = event => {
-                audioChunksRef.current.push(event.data);
-            };
+            mediaRecorder.ondataavailable = event => {
+                audioChunksRef.current.push(event.data);
+            };
 
-            mediaRecorder.onstop = async () => {
-                setIsRecording(false);
-                setIsLoading(true);
-                const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm; codecs=opus' });
-                
-                const reader = new FileReader();
-                reader.onloadend = async () => {
-                    const base64Audio = reader.result.split(',')[1];
-                    try {
-                        const response = await fetch('/api/transcribe', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ audio: base64Audio })
-                        });
-                        const data = await response.json();
-                        if (data.transcript) {
-                            setMemoText(data.transcript);
-                        } else {
-                            setModalErrorMessage(data.message || t('aiTranscriptionFailed', lang));
-                        }
-                    } catch (error) {
-                        console.error('Transcription failed:', error);
-                        setModalErrorMessage(t('aiTranscriptionFailed', lang));
-                    } finally {
-                        setIsLoading(false);
-                    }
-                };
-                reader.readAsDataURL(audioBlob);
-                
-                stream.getTracks().forEach(track => track.stop());
-            };
+            mediaRecorder.onstop = async () => {
+                setIsRecording(false);
+                setIsLoading(true);
+                const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm; codecs=opus' });
+                
+                const reader = new FileReader();
+                reader.onloadend = async () => {
+                    const base64Audio = reader.result.split(',')[1];
+                    try {
+                        const response = await fetch('/api/transcribe', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ audio: base64Audio })
+                        });
+                        const data = await response.json();
+                        if (data.transcript) {
+                            setMemoText(data.transcript);
+                        } else {
+                            setModalErrorMessage(data.message || t('aiTranscriptionFailed', lang));
+                        }
+                    } catch (error) {
+                        console.error('Transcription failed:', error);
+                        setModalErrorMessage(t('aiTranscriptionFailed', lang));
+                    } finally {
+                        setIsLoading(false);
+                    }
+                };
+                reader.readAsDataURL(audioBlob);
+                
+                stream.getTracks().forEach(track => track.stop());
+            };
 
-            mediaRecorder.start();
-            setIsRecording(true);
-            setModalErrorMessage('');
-        } catch (err) {
-            console.error('Error accessing microphone:', err);
-            setModalErrorMessage(t('micPermissionError', lang));
-        }
-    };
+            mediaRecorder.start();
+            setIsRecording(true);
+            setModalErrorMessage('');
+        } catch (err) {
+            console.error('Error accessing microphone:', err);
+            setModalErrorMessage(t('micPermissionError', lang));
+        }
+    };
 
-    const handleAddMemo = async () => {
-        if (!user) { openLoginModal(); return; }
-        if (memoText.trim() === '' || isLoading) { setModalErrorMessage(t('enterMemoContent', lang)); return; }
-        
-        const currentMemoCount = await checkDailyMemoLimit(user.uid);
-        if (currentMemoCount >= memoLimit) {
-            setModalErrorMessage(t('memoLimitReached', lang, memoLimit));
-            return;
-        }
-        
-        try {
-            await addQuickMemo(user.uid, memoText);  
-            setMemoText('');
-            onClose();
-            if (onMemoAdded) {
-                onMemoAdded();
-            }
-            setModalErrorMessage('');
-        } catch (error) {
-            setModalErrorMessage(t('failedToSaveMemo', lang));
-            console.error(error);
-        }
-    };
+    const handleAddMemo = async () => {
+        if (!user) { openLoginModal(); return; }
+        if (memoText.trim() === '' || isLoading) { setModalErrorMessage(t('enterMemoContent', lang)); return; }
+        
+        const currentMemoCount = await checkDailyMemoLimit(user.uid);
+        if (currentMemoCount >= memoLimit) {
+            setModalErrorMessage(t('memoLimitReached', lang, memoLimit));
+            return;
+        }
+        
+        try {
+            await addQuickMemo(user.uid, memoText);  
+            setMemoText('');
+            onClose();
+            if (onMemoAdded) {
+                onMemoAdded();
+            }
+            setModalErrorMessage('');
+        } catch (error) {
+            setModalErrorMessage(t('failedToSaveMemo', lang));
+            console.error(error);
+        }
+    };
 
-    if (!isOpen) return null;
+    if (!isOpen) return null;
 
-    return (
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 p-4">
-            <div className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-md border border-gray-200">
-                <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-xl font-bold text-gray-900">{t('quickMemoTitle', lang)}</h3>
-                    <button onClick={onClose} className="text-gray-500 hover:text-gray-900 transition"><CloseIcon /></button>
-                </div>
-                <div className="space-y-4">
-                    {modalErrorMessage && (<div className="bg-red-100 text-red-700 p-3 rounded-xl">{modalErrorMessage}</div>)}
-                    <div>
-                        <p className="text-sm text-gray-500">
-                            {t('memoLimitMessage', lang, memoLimit, memoCount)}
-                        </p>
-                    </div>
-                    <textarea
-                        value={memoText}
-                        onChange={(e) => setMemoText(e.target.value)}
-                        placeholder={t('quickMemoPlaceholder', lang)}
-                        rows="4"
-                        className="w-full p-3 rounded-md bg-gray-100 text-gray-800 placeholder-gray-400 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                        disabled={isRecording || isLoading}
-                    />
-                    <div className="flex justify-between items-center space-x-2">
-                        <button
-                            onClick={handleStartRecording}
-                            className={`flex items-center justify-center flex-grow py-3 rounded-md font-semibold text-white transition ${isRecording ? 'bg-red-500 hover:bg-red-600' : 'bg-gray-700 hover:bg-gray-800'}`}
-                            disabled={isLoading}
-                        >
-                            <MicIcon />
-                            <span className="ml-2">{isRecording ? t('recording', lang) : t('voiceMemo', lang)}</span>
-                        </button>
-                        <button
-                            onClick={handleAddMemo}
-                            className="flex items-center justify-center flex-grow py-3 rounded-md font-semibold text-white bg-green-500 hover:bg-green-600 transition"
-                            disabled={memoText.trim() === '' || isLoading}
-                        >
-                            <SaveIcon />
-                            <span className="ml-2">{t('save', lang)}</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+    return (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 p-4">
+            <div className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-md border border-gray-200">
+                <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">{t('quickMemoTitle', lang)}</h3>
+                    <button onClick={onClose} className="text-gray-500 hover:text-gray-900 transition"><CloseIcon /></button>
+                </div>
+                <div className="space-y-4">
+                    {modalErrorMessage && (<div className="bg-red-100 text-red-700 p-3 rounded-xl">{modalErrorMessage}</div>)}
+                    <div>
+                        <p className="text-sm text-gray-500">
+                            {t('memoLimitMessage', lang, memoLimit, memoCount)}
+                        </p>
+                    </div>
+                    <textarea
+                        value={memoText}
+                        onChange={(e) => setMemoText(e.target.value)}
+                        placeholder={t('quickMemoPlaceholder', lang)}
+                        rows="4"
+                        className="w-full p-3 rounded-md bg-gray-100 text-gray-800 placeholder-gray-400 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                        disabled={isRecording || isLoading}
+                    />
+                    <div className="flex justify-between items-center space-x-2">
+                        <button
+                            onClick={handleStartRecording}
+                            className={`flex items-center justify-center flex-grow py-3 rounded-md font-semibold text-white transition ${isRecording ? 'bg-red-500 hover:bg-red-600' : 'bg-gray-700 hover:bg-gray-800'}`}
+                            disabled={isLoading}
+                        >
+                            <MicIcon />
+                            <span className="ml-2">{isRecording ? t('recording', lang) : t('voiceMemo', lang)}</span>
+                        </button>
+                        <button
+                            onClick={handleAddMemo}
+                            className="flex items-center justify-center flex-grow py-3 rounded-md font-semibold text-white bg-green-500 hover:bg-green-600 transition"
+                            disabled={memoText.trim() === '' || isLoading}
+                        >
+                            <SaveIcon />
+                            <span className="ml-2">{t('save', lang)}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 // ExpositorySermon Component
 const ExpositorySermonComponent = ({ setSermonDraft, userId, commentaryCount, userSubscription, setErrorMessage, lang, user, openLoginModal, onLimitReached, sermonCount, canGenerateSermon, canGenerateCommentary }) => {
-    const [scriptureInput, setScriptureInput] = useState('');
-    const [scriptureText, setScriptureText] = useState('');
-    const [commentary, setCommentary] = useState('');
-    const [crossReferences, setCrossReferences] = useState([]);
-    
-    const { generateSermon, reviseDraft, isLoading: sermonIsLoading } = useSermonGeneration(userId, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, lang, user, openLoginModal, onLimitReached, sermonCount, commentaryCount, userSubscription);
-    const [commentaryLoading, setCommentaryLoading] = useState(false);
+    const [scriptureInput, setScriptureInput] = useState('');
+    const [scriptureText, setScriptureText] = useState('');
+    const [commentary, setCommentary] = useState('');
+    const [crossReferences, setCrossReferences] = useState([]);
+    
+    const { generateSermon, reviseDraft, isLoading: sermonIsLoading } = useSermonGeneration(userId, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, lang, user, openLoginModal, onLimitReached, sermonCount, commentaryCount, userSubscription);
+    const [commentaryLoading, setCommentaryLoading] = useState(false);
 
-    const handleGetCommentaryAndReferences = useCallback(async () => {
-        if (!user) { openLoginModal(); return; }
-        if (!canGenerateCommentary) { setErrorMessage(t('commentaryLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))); onLimitReached(); return; }
-        if (scriptureInput.trim() === '') { setErrorMessage(t('enterScriptureReference', lang)); return; }
+    const handleGetCommentaryAndReferences = useCallback(async () => {
+        if (!user) { openLoginModal(); return; }
+        if (!canGenerateCommentary) { setErrorMessage(t('commentaryLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))); onLimitReached(); return; }
+        if (scriptureInput.trim() === '') { setErrorMessage(t('enterScriptureReference', lang)); return; }
 
-        setCommentaryLoading(true);
-        setCommentary(t('generating', lang));
-        setCrossReferences([]);
-        setErrorMessage('');
+        setCommentaryLoading(true);
+        setCommentary(t('generating', lang));
+        setCrossReferences([]);
+        setErrorMessage('');
 
-        try {
-            const promptText = `Based on the following scripture reference, provide a detailed expository commentary and a list of 3-5 relevant cross-reference verses with a brief explanation for each. Format the response with a clear "Commentary:" section and a "Cross-References:" section.
-            Scripture: "${scriptureInput}"
-            
-            The response should be in ${lang === 'ko' ? 'Korean' : 'English'}.`;
+        try {
+            const promptText = `Based on the following scripture reference, provide a detailed expository commentary and a list of 3-5 relevant cross-reference verses with a brief explanation for each. Format the response with a clear "Commentary:" section and a "Cross-References:" section.
+            Scripture: "${scriptureInput}"
+            
+            The response should be in ${lang === 'ko' ? 'Korean' : 'English'}.`;
 
-            const fullResponse = await callGeminiAPI(promptText);
-            
-            const commentaryMatch = fullResponse.match(/Commentary:\s*([\s\S]*?)(?=Cross-References:|$)/);
-            const referencesMatch = fullResponse.match(/Cross-References:\s*([\s\S]*)/);
-            
-            if (commentaryMatch) {
-                setCommentary(commentaryMatch[1].trim());
-            } else {
-                setCommentary(fullResponse);
-            }
+            const fullResponse = await callGeminiAPI(promptText);
+            
+            const commentaryMatch = fullResponse.match(/Commentary:\s*([\s\S]*?)(?=Cross-References:|$)/);
+            const referencesMatch = fullResponse.match(/Cross-References:\s*([\s\S]*)/);
+            
+            if (commentaryMatch) {
+                setCommentary(commentaryMatch[1].trim());
+            } else {
+                setCommentary(fullResponse);
+            }
 
-            if (referencesMatch) {
-                const references = referencesMatch[1].trim().split('\n').map(line => line.trim()).filter(line => line.length > 0);
-                setCrossReferences(references);
-            }
+            if (referencesMatch) {
+                const references = referencesMatch[1].trim().split('\n').map(line => line.trim()).filter(line => line.length > 0);
+                setCrossReferences(references);
+            }
 
-            await incrementUsageCount('commentary', userId, commentaryCount, setErrorMessage);
-        } catch (error) {
-            setCommentary(t('generationFailed', lang));
-            console.error(error);
-            setErrorMessage(t('generationFailed', lang));
-        } finally {
-            setCommentaryLoading(false);
-        }
-    }, [scriptureInput, setCommentary, setCrossReferences, setErrorMessage, canGenerateCommentary, userId, commentaryCount, lang, user, openLoginModal, onLimitReached, userSubscription]);
+            await incrementUsageCount('commentary', userId, commentaryCount, setErrorMessage);
+        } catch (error) {
+            setCommentary(t('generationFailed', lang));
+            console.error(error);
+            setErrorMessage(t('generationFailed', lang));
+        } finally {
+            setCommentaryLoading(false);
+        }
+    }, [scriptureInput, setCommentary, setCrossReferences, setErrorMessage, canGenerateCommentary, userId, commentaryCount, lang, user, openLoginModal, onLimitReached, userSubscription]);
 
-    const handleAddSelectedText = useCallback((textToAdd) => {
-        if (textToAdd && textToAdd.trim()) {
-            setSermonDraft(prevDraft => prevDraft ? `${prevDraft}\n\n${textToAdd}` : textToAdd);
-        }
-    }, [setSermonDraft]);
+    const handleAddSelectedText = useCallback((textToAdd) => {
+        if (textToAdd && textToAdd.trim()) {
+            setSermonDraft(prevDraft => prevDraft ? `${prevDraft}\n\n${textToAdd}` : textToAdd);
+        }
+    }, [setSermonDraft]);
 
-    const handleGetScripture = async () => {
-        if (!user) { openLoginModal(); return; }
-        if (scriptureInput.trim() === '') { setErrorMessage(t('enterScriptureReference', lang)); return; }
-        
-        setSermonDraft(t('gettingScripture', lang));
-        setErrorMessage('');
-        try {
-            const promptText = `Please provide the full text for the following scripture reference in ${lang === 'ko' ? 'Korean' : 'English'}: ${scriptureInput}`;
-            const text = await callGeminiAPI(promptText);
-            setScriptureText(text);
-            setSermonDraft('');
-        } catch (error) {
-            setSermonDraft(t('generationFailed', lang));
-            console.error(error);
-            setErrorMessage(t('generationFailed', lang));
-        }
-    };
+    const handleGetScripture = async () => {
+        if (!user) { openLoginModal(); return; }
+        if (scriptureInput.trim() === '') { setErrorMessage(t('enterScriptureReference', lang)); return; }
+        
+        setSermonDraft(t('gettingScripture', lang));
+        setErrorMessage('');
+        try {
+            const promptText = `Please provide the full text for the following scripture reference in ${lang === 'ko' ? 'Korean' : 'English'}: ${scriptureInput}`;
+            const text = await callGeminiAPI(promptText);
+            setScriptureText(text);
+            setSermonDraft('');
+        } catch (error) {
+            setSermonDraft(t('generationFailed', lang));
+            console.error(error);
+            setErrorMessage(t('generationFailed', lang));
+        }
+    };
 
-    return (
-        <div className="flex flex-col items-center space-y-4 max-w-2xl mx-auto w-full">
-            <h2 className="text-4xl font-extrabold text-gray-800">{t('expositorySermonTitle', lang)}</h2>
-            <p className="text-lg text-gray-600 mb-4">{t('expositoryDescription', lang)}</p>
-            
-            {userSubscription !== 'premium' && (
-                <p className="text-sm text-gray-500 mb-4">
-                    {t('commentaryLimit', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))}
-                </p>
-            )}
+    return (
+        <div className="flex flex-col items-center space-y-4 max-w-2xl mx-auto w-full">
+            <h2 className="text-4xl font-extrabold text-gray-800">{t('expositorySermonTitle', lang)}</h2>
+            <p className="text-lg text-gray-600 mb-4">{t('expositoryDescription', lang)}</p>
+            
+            {userSubscription !== 'premium' && (
+                <p className="text-sm text-gray-500 mb-4">
+                    {t('commentaryLimit', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))}
+                </p>
+            )}
 
-            <div className="w-full flex space-x-2">
-                <input
-                    type="text"
-                    value={scriptureInput}
-                    onChange={(e) => setScriptureInput(e.target.value)}
-                    placeholder={t('scripturePlaceholder', lang)}
-                    className="flex-grow p-4 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <button
-                    onClick={handleGetScripture}
-                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400"
-                    disabled={scriptureInput.trim() === ''}
-                >
-                    {t('getScripture', lang)}
-                </button>
-            </div>
+            <div className="w-full flex space-x-2">
+                <input
+                    type="text"
+                    value={scriptureInput}
+                    onChange={(e) => setScriptureInput(e.target.value)}
+                    placeholder={t('scripturePlaceholder', lang)}
+                    className="flex-grow p-4 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                    onClick={handleGetScripture}
+                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400"
+                    disabled={scriptureInput.trim() === ''}
+                >
+                    {t('getScripture', lang)}
+                </button>
+            </div>
 
-            {scriptureText && (
-                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left whitespace-pre-wrap">
-                    <p className="font-semibold text-gray-800 mb-2">{t('scriptureTitle', lang)}</p>
-                    <p className="text-gray-600" onMouseUp={() => handleAddSelectedText(window.getSelection().toString())}>{scriptureText}</p>
-                    <button
-                        onClick={handleGetCommentaryAndReferences}
-                        className="mt-4 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
-                        disabled={!canGenerateCommentary || commentaryLoading}
-                    >
-                        {commentaryLoading ? t('generating', lang) : t('getCommentary', lang)}
-                    </button>
-                </div>
-            )}
-            
-            {crossReferences.length > 0 && (
-                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left">
-                    <p className="font-semibold text-gray-800 mb-2">{t('crossReferencesTitle', lang)}</p>
-                    <ul className="list-disc list-inside space-y-1 text-gray-600">
-                        {crossReferences.map((ref, index) => (
-                            <li key={index}>{ref}</li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-            
-            {commentary && (
-                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left whitespace-pre-wrap">
-                    <p className="font-semibold text-gray-800 mb-2">{t('aiCommentaryTitle', lang)}</p>
-                    <p className="text-gray-600">{commentary}</p>
-                    <button
-                        onClick={async () => {
-                            if (!user) { openLoginModal(); return; }
-                            const promptText = `Based on the following commentary, write a detailed sermon in ${lang === 'ko' ? 'Korean' : 'English'}. Note: "${commentary}"`;
-                            await generateSermon(promptText, 'sermon');
-                        }}
-                        className="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
-                        disabled={!canGenerateSermon || sermonIsLoading || commentary.trim() === ''}
-                    >
-                        {sermonIsLoading ? t('generating', lang) : t('generateSermonFromMemo', lang)}
-                    </button>
-                </div>
-            )}
-            
-            {setSermonDraft && (
-                 <button
-                    onClick={() => reviseDraft(window.getSelection().toString().trim())}
-                    className="mt-4 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-xl shadow-lg transition duration-300 w-full"
-                    disabled={sermonIsLoading}
-                   >
-                    {t('editWithAiTitle', lang)}
-                   </button>
-            )}
-        </div>
-    );
+            {scriptureText && (
+                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left whitespace-pre-wrap">
+                    <p className="font-semibold text-gray-800 mb-2">{t('scriptureTitle', lang)}</p>
+                    <p className="text-gray-600" onMouseUp={() => handleAddSelectedText(window.getSelection().toString())}>{scriptureText}</p>
+                    <button
+                        onClick={handleGetCommentaryAndReferences}
+                        className="mt-4 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
+                        disabled={!canGenerateCommentary || commentaryLoading}
+                    >
+                        {commentaryLoading ? t('generating', lang) : t('getCommentary', lang)}
+                    </button>
+                </div>
+            )}
+            
+            {crossReferences.length > 0 && (
+                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left">
+                    <p className="font-semibold text-gray-800 mb-2">{t('crossReferencesTitle', lang)}</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-600">
+                        {crossReferences.map((ref, index) => (
+                            <li key={index}>{ref}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+            
+            {commentary && (
+                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left whitespace-pre-wrap">
+                    <p className="font-semibold text-gray-800 mb-2">{t('aiCommentaryTitle', lang)}</p>
+                    <p className="text-gray-600">{commentary}</p>
+                    <button
+                        onClick={async () => {
+                            if (!user) { openLoginModal(); return; }
+                            const promptText = `Based on the following commentary, write a detailed sermon in ${lang === 'ko' ? 'Korean' : 'English'}. Note: "${commentary}"`;
+                            await generateSermon(promptText, 'sermon');
+                        }}
+                        className="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
+                        disabled={!canGenerateSermon || sermonIsLoading || commentary.trim() === ''}
+                    >
+                        {sermonIsLoading ? t('generating', lang) : t('generateSermonFromMemo', lang)}
+                    </button>
+                </div>
+            )}
+            
+            {setSermonDraft && (
+                 <button
+                    onClick={() => reviseDraft(window.getSelection().toString().trim())}
+                    className="mt-4 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-xl shadow-lg transition duration-300 w-full"
+                    disabled={sermonIsLoading}
+                   >
+                    {t('editWithAiTitle', lang)}
+                   </button>
+            )}
+        </div>
+    );
 };
 
-// RealLifeSermon component
+// RealLifeSermon Component
 const RealLifeSermonComponent = ({ setSermonDraft, userId, sermonCount, userSubscription, setErrorMessage, lang, user, openLoginModal, onLimitReached, canGenerateSermon }) => {
-    const [topicInput, setTopicInput] = useState('');
-    const [suggestions, setSuggestions] = useState([]);
-    const [selectedSuggestion, setSelectedSuggestion] = useState(null);
-    const [commentary, setCommentary] = useState('');     
-    const [commentaryLoading, setCommentaryLoading] = useState(false);  
+    const [userInput, setUserInput] = useState('');
+    const [aiSuggestions, setAiSuggestions] = useState([]);
+    const [selectedSuggestion, setSelectedSuggestion] = useState(null);
+    const [commentary, setCommentary] = useState('');
+    const [suggestionsLoading, setSuggestionsLoading] = useState(false);
+    const [commentaryLoading, setCommentaryLoading] = useState(false);
 
-    const { generateSermon, reviseDraft, isLoading: sermonIsLoading } = useSermonGeneration(userId, setSermonDraft, setErrorMessage, canGenerateSermon, true, lang, user, openLoginModal, onLimitReached, sermonCount, null, userSubscription);
+    const { generateSermon, reviseDraft, isLoading: sermonIsLoading } = useSermonGeneration(userId, setSermonDraft, setErrorMessage, canGenerateSermon, true, lang, user, openLoginModal, onLimitReached, sermonCount, 0, userSubscription);
 
-    const handleSuggest = useCallback(async () => {
-        if (!user) { openLoginModal(); return; }
-        if (!canGenerateSermon) { setErrorMessage(t('sermonLimitError', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))); onLimitReached(); return; }
-        if (topicInput.trim() === '') { setErrorMessage(t('enterTopic', lang)); return; }
-        
-        setSuggestionsLoading(true);
-        setSermonDraft(t('generatingSuggestions', lang));
-        setSuggestions([]);
-        setErrorMessage('');
+    const handleSuggest = useCallback(async () => {
+        if (!user) { openLoginModal(); return; }
+        if (userInput.trim() === '') { setErrorMessage(t('enterRealLifeTopic', lang)); return; }
 
-        try {
-            const promptText = `Based on the following real-life topic, suggest 3 relevant scripture verses and 3 sermon themes in a JSON array format. The JSON array should contain objects with keys "verse" and "theme". Topic: "${topicInput}"`;
-            const generationConfig = {
-                responseMimeType: "application/json",
-                responseSchema: {
-                    type: "ARRAY",
-                    items: {
-                        type: "OBJECT",
-                        properties: {
-                            "verse": { "type": "STRING" },
-                            "theme": { "type": "STRING" }
-                        },
-                        "propertyOrdering": ["verse", "theme"]
-                    }
-                }
-            };
-            const jsonText = await callGeminiAPI(promptText, generationConfig);
-            const parsedJson = JSON.parse(jsonText);
-            setSuggestions(parsedJson);
-            setSermonDraft('');
-        } catch (error) {
-            setSermonDraft(t('generationFailed', lang));
-            console.error(error);
-        } finally {
-            setSuggestionsLoading(false);
-        }
-    }, [topicInput, setSermonDraft, setErrorMessage, canGenerateSermon, lang, user, openLoginModal, onLimitReached, userSubscription, sermonCount]);
+        setSuggestionsLoading(true);
+        setAiSuggestions([]);
+        setSelectedSuggestion(null);
+        setCommentary('');
+        setSermonDraft('');
+        setErrorMessage('');
 
-    const handleGenerateSermon = useCallback(async () => {
-        if (!user) { openLoginModal(); return; }
-        if (!selectedSuggestion) { setErrorMessage(t('selectSuggestionFirst', lang)); return; }
-        const promptText = `Write a detailed sermon based on the following suggestion: "${selectedSuggestion.verse}" and theme: "${selectedSuggestion.theme}". The sermon should be written in ${lang === 'ko' ? 'Korean' : 'English'}.`;
-        await generateSermon(promptText, 'sermon');
-    }, [selectedSuggestion, generateSermon, setErrorMessage, user, openLoginModal, lang]);
-    
-    return (
-        <div className="flex flex-col items-center space-y-4 max-w-2xl mx-auto w-full">
-            <h2 className="text-4xl font-extrabold text-gray-800">{t('realLifeSermonTitle', lang)}</h2>
-            <p className="text-lg text-gray-600 mb-4">{t('realLifeDescription', lang)}</p>
+        try {
+            const promptText = `Based on the following real-life topic or event, suggest 3 relevant scripture verses and 3 corresponding sermon themes. Format the response as a JSON array with objects containing 'verse' and 'theme' keys.
+            Topic: "${userInput}"
+            The response should be in ${lang === 'ko' ? 'Korean' : 'English'}.`;
 
-            {userSubscription !== 'premium' && (
-                <p className="text-sm text-gray-500 mb-4">
-                    {t('sermonLimit', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))}
-                </p>
-            )}
+            const generationConfig = {
+                responseMimeType: "application/json",
+                responseSchema: {
+                    type: "ARRAY",
+                    items: {
+                        type: "OBJECT",
+                        properties: {
+                            "verse": { "type": "STRING" },
+                            "theme": { "type": "STRING" }
+                        },
+                        "propertyOrdering": ["verse", "theme"]
+                    }
+                }
+            };
 
-            <div className="w-full flex space-x-2">
-                <input
-                    type="text"
-                    value={topicInput}
-                    onChange={(e) => setTopicInput(e.target.value)}
-                    placeholder={t('scripturePlaceholder', lang)}
-                    className="flex-grow p-4 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <button
-                    onClick={handleSuggest}
-                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400"
-                    disabled={topicInput.trim() === '' || suggestionsLoading}
-                >
-                    {suggestionsLoading ? t('generating', lang) : t('suggestScriptureAndThemes', lang)}
-                </button>
-            </div>
+            const jsonText = await callGeminiAPI(promptText, generationConfig);
+            const parsedJson = JSON.parse(jsonText);
+            setAiSuggestions(parsedJson);
+        } catch (error) {
+            setErrorMessage(t('generationFailed', lang));
+            console.error(error);
+        } finally {
+            setSuggestionsLoading(false);
+        }
+    }, [userInput, setAiSuggestions, setErrorMessage, setSermonDraft, lang, user, openLoginModal]);
 
-            {suggestions.length > 0 && (
-                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left">
-                    <p className="font-semibold text-gray-800 mb-2">{t('aiSuggestions', lang)}</p>
-                    <ul className="space-y-2">
-                        {suggestions && suggestions.length > 0 && suggestions.map((sug, index) => (
-                            <li key={index} className={`p-3 rounded-lg cursor-pointer transition ${selectedSuggestion && selectedSuggestion.verse === sug.verse ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
-                                onClick={() => setSelectedSuggestion(sug)}>
-                                <p className="font-semibold">{sug.verse}</p>
-                                <p className="text-sm">{sug.theme}</p>
-                            </li>
-                        ))}
-                    </ul>
-                    <button
-                        onClick={handleGetCommentary}
-                        className="mt-4 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
-                        disabled={!selectedSuggestion || commentaryLoading}
-                    >
-                        {commentaryLoading ? t('generating', lang) : t('getCommentary', lang)}
-                    </button>
-                </div>
-            )}
-            
-            {commentary && (
-                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left whitespace-pre-wrap">
-                    <p className="font-semibold text-gray-800 mb-2">{t('aiCommentaryTitle', lang)}</p>
-                    <p className="text-gray-600">{commentary}</p>
-                    <button
-                        onClick={async () => {
-                            if (!user) { openLoginModal(); return; }
-                            const promptText = `Based on the following commentary, write a detailed sermon in ${lang === 'ko' ? 'Korean' : 'English'}. Note: "${commentary}"`;
-                            await generateSermon(promptText, 'sermon');
-                        }}
-                        className="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
-                        disabled={!canGenerateSermon || sermonIsLoading || commentary.trim() === ''}
-                    >
-                        {sermonIsLoading ? t('generating', lang) : t('generateSermonFromMemo', lang)}
-                    </button>
-                </div>
-            )}
-            
-            {setSermonDraft && (
-                 <button
-                    onClick={() => reviseDraft(window.getSelection().toString().trim())}
-                    className="mt-4 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-xl shadow-lg transition duration-300 w-full"
-                    disabled={sermonIsLoading}
-                   >
-                    {t('editWithAiTitle', lang)}
-                   </button>
-            )}
-        </div>
-    );
+    const handleGetCommentary = useCallback(async () => {
+        if (!user) { openLoginModal(); return; }
+        if (!selectedSuggestion) { setErrorMessage(t('selectSuggestion', lang)); return; }
+        
+        setCommentaryLoading(true);
+        setCommentary(t('generating', lang));
+        setErrorMessage('');
+
+        try {
+            const promptText = `Provide a detailed commentary and real-life application for the scripture: "${selectedSuggestion.verse}" and theme: "${selectedSuggestion.theme}".
+            The response should be in ${lang === 'ko' ? 'Korean' : 'English'}.`;
+            const text = await callGeminiAPI(promptText);
+            setCommentary(text);
+        } catch (error) {
+            setCommentary(t('generationFailed', lang));
+            console.error(error);
+            setErrorMessage(t('generationFailed', lang));
+        } finally {
+            setCommentaryLoading(false);
+        }
+    }, [selectedSuggestion, setCommentary, setErrorMessage, lang, user, openLoginModal]);
+
+    const handleGenerateSermon = useCallback(async () => {
+        if (!user) { openLoginModal(); return; }
+        if (!selectedSuggestion || commentary.trim() === '') { setErrorMessage(t('missingSuggestionAndCommentary', lang)); return; }
+
+        const promptText = `Based on the following scripture, theme, and commentary, write a detailed sermon on real-life application.
+        Scripture: "${selectedSuggestion.verse}"
+        Theme: "${selectedSuggestion.theme}"
+        Commentary: "${commentary}"
+        
+        The response should be in ${lang === 'ko' ? 'Korean' : 'English'}.`;
+
+        await generateSermon(promptText, 'sermon');
+    }, [selectedSuggestion, commentary, generateSermon, setErrorMessage, lang, user, openLoginModal]);
+
+    return (
+        <div className="flex flex-col items-center space-y-4 max-w-2xl mx-auto w-full">
+            <h2 className="text-4xl font-extrabold text-gray-800">{t('realLifeSermonTitle', lang)}</h2>
+            <p className="text-lg text-gray-600 mb-4">{t('realLifeDescription', lang)}</p>
+
+            {userSubscription !== 'premium' && (
+                <p className="text-sm text-gray-500 mb-4">
+                    {t('sermonLimit', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))}
+                </p>
+            )}
+
+            <div className="w-full flex space-x-2">
+                <input
+                    type="text"
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                    placeholder={t('realLifeTopicPlaceholder', lang)}
+                    className="flex-grow p-4 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                    onClick={handleSuggest}
+                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400"
+                    disabled={userInput.trim() === '' || suggestionsLoading}
+                >
+                    {t('suggestScriptureAndThemes', lang)}
+                </button>
+            </div>
+
+            {suggestionsLoading && (
+                <div className="w-full p-4 rounded-xl bg-gray-100 text-center">
+                    <p className="text-gray-600">{t('generating', lang)}</p>
+                </div>
+            )}
+
+            {aiSuggestions.length > 0 && (
+                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left">
+                    <p className="font-semibold text-gray-800 mb-2">{t('aiSuggestions', lang)}</p>
+                    <ul className="space-y-2">
+                        {aiSuggestions.map((sug, index) => (
+                            <li key={index} className={`p-3 rounded-lg cursor-pointer transition ${selectedSuggestion && selectedSuggestion.verse === sug.verse ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
+                                onClick={() => setSelectedSuggestion(sug)}>
+                                <p className="font-semibold">{sug.verse}</p>
+                                <p className="text-sm">{sug.theme}</p>
+                            </li>
+                        ))}
+                    </ul>
+                    <button
+                        onClick={handleGetCommentary}
+                        className="mt-4 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
+                        disabled={!selectedSuggestion || commentaryLoading}
+                    >
+                        {commentaryLoading ? t('generating', lang) : t('getCommentary', lang)}
+                    </button>
+                </div>
+            )}
+
+            {commentary && (
+                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left whitespace-pre-wrap">
+                    <p className="font-semibold text-gray-800 mb-2">{t('aiCommentaryTitle', lang)}</p>
+                    <p className="text-gray-600">{commentary}</p>
+                    <button
+                        onClick={handleGenerateSermon}
+                        className="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
+                        disabled={!canGenerateSermon || sermonIsLoading || commentary.trim() === ''}
+                    >
+                        {sermonIsLoading ? t('generating', lang) : t('generateSermonFromMemo', lang)}
+                    </button>
+                </div>
+            )}
+
+            {setSermonDraft && (
+                 <button
+                    onClick={() => reviseDraft(window.getSelection().toString().trim())}
+                    className="mt-4 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-xl shadow-lg transition duration-300 w-full"
+                    disabled={sermonIsLoading}
+                   >
+                    {t('editWithAiTitle', lang)}
+                   </button>
+            )}
+        </div>
+    );
 };
+
 
 // QuickMemoSermon component
 const QuickMemoSermonComponent = ({ setSermonDraft, userId, sermonCount, userSubscription, setErrorMessage, lang, user, openLoginModal, onLimitReached, memos, commentaryCount, canGenerateSermon, canGenerateCommentary }) => {
-    const [selectedMemo, setSelectedMemo] = useState(null);
-    const [suggestions, setSuggestions] = useState([]);
-    const [selectedSuggestion, setSelectedSuggestion] = useState(null);
-    const [commentary, setCommentary] = useState('');
-    const [suggestionsLoading, setSuggestionsLoading] = useState(false);
-    const [commentaryLoading, setCommentaryLoading] = useState(false);
-    
-    const { generateSermon, reviseDraft, isLoading: sermonIsLoading } = useSermonGeneration(userId, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, lang, user, openLoginModal, onLimitReached, sermonCount, commentaryCount, userSubscription);
+    const [selectedMemo, setSelectedMemo] = useState(null);
+    const [suggestions, setSuggestions] = useState([]);
+    const [selectedSuggestion, setSelectedSuggestion] = useState(null);
+    const [commentary, setCommentary] = useState('');
+    const [suggestionsLoading, setSuggestionsLoading] = useState(false);
+    const [commentaryLoading, setCommentaryLoading] = useState(false);
+    
+    const { generateSermon, reviseDraft, isLoading: sermonIsLoading } = useSermonGeneration(userId, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, lang, user, openLoginModal, onLimitReached, sermonCount, commentaryCount, userSubscription);
 
-    const handleToggleMemo = useCallback(async (memo) => {
-        if (!user) { openLoginModal(); return; }
-        
-        if (selectedMemo && selectedMemo.id === memo.id) {
-            setSelectedMemo(null);
-            setSuggestions([]);
-            setSelectedSuggestion(null);
-            setCommentary('');
-            setErrorMessage('');
-            setSermonDraft('');
-        } else {
-            setSelectedMemo(memo);
-            setSuggestions([]);
-            setSelectedSuggestion(null);
-            setCommentary('');
-            
-            setSuggestionsLoading(true);
-            setSermonDraft(t('generating', lang));
-            setErrorMessage('');
+    const handleToggleMemo = useCallback(async (memo) => {
+        if (!user) { openLoginModal(); return; }
+        
+        if (selectedMemo && selectedMemo.id === memo.id) {
+            setSelectedMemo(null);
+            setSuggestions([]);
+            setSelectedSuggestion(null);
+            setCommentary('');
+            setErrorMessage('');
+            setSermonDraft('');
+        } else {
+            setSelectedMemo(memo);
+            setSuggestions([]);
+            setSelectedSuggestion(null);
+            setCommentary('');
+            
+            setSuggestionsLoading(true);
+            setSermonDraft(t('generating', lang));
+            setErrorMessage('');
 
-            try {
-                const promptText = `Based on the following note, suggest 3 relevant scripture verses and 3 sermon themes in a JSON array format. The JSON array should contain objects with keys "verse" and "theme". Note: "${memo.content}". The response should be in ${lang === 'ko' ? 'Korean' : 'English'}.`;
-                const generationConfig = {
-                    responseMimeType: "application/json",
-                    responseSchema: {
-                        type: "ARRAY",
-                        items: {
-                            type: "OBJECT",
-                            properties: {
-                                "verse": { "type": "STRING" },
-                                "theme": { "type": "STRING" }
-                            },
-                            "propertyOrdering": ["verse", "theme"]
-                        }
-                    }
-                };
-                const jsonText = await callGeminiAPI(promptText, generationConfig);
-                const parsedJson = JSON.parse(jsonText);
-                setSuggestions(parsedJson);
-                setSermonDraft('');
-            } catch (error) {
-                setSermonDraft(t('generationFailed', lang));
-                console.error(error);
-            } finally {
-                setSuggestionsLoading(false);
-            }
-        }
-    }, [selectedMemo, setSermonDraft, setErrorMessage, user, openLoginModal, lang]);
+            try {
+                const promptText = `Based on the following note, suggest 3 relevant scripture verses and 3 sermon themes in a JSON array format. The JSON array should contain objects with keys "verse" and "theme". Note: "${memo.content}". The response should be in ${lang === 'ko' ? 'Korean' : 'English'}.`;
+                const generationConfig = {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "ARRAY",
+                        items: {
+                            type: "OBJECT",
+                            properties: {
+                                "verse": { "type": "STRING" },
+                                "theme": { "type": "STRING" }
+                            },
+                            "propertyOrdering": ["verse", "theme"]
+                        }
+                    }
+                };
+                const jsonText = await callGeminiAPI(promptText, generationConfig);
+                const parsedJson = JSON.parse(jsonText);
+                setSuggestions(parsedJson);
+                setSermonDraft('');
+            } catch (error) {
+                setSermonDraft(t('generationFailed', lang));
+                console.error(error);
+            } finally {
+                setSuggestionsLoading(false);
+            }
+        }
+    }, [selectedMemo, setSermonDraft, setErrorMessage, user, openLoginModal, lang]);
 
-    const handleGetCommentary = useCallback(async () => {
-        if (!user) { openLoginModal(); return; }
-        if (!selectedSuggestion) { setErrorMessage('Please select a suggestion first.'); return; }
-        
-        setCommentaryLoading(true);
-        setCommentary(t('generating', lang));
-        try {
-            const promptText = `Commentary for: ${selectedSuggestion.verse}`;
-            const text = await callGeminiAPI(promptText);
-            setCommentary(text);
-        } catch (error) {
-            setCommentary('Failed to generate');
-        } finally {
-            setCommentaryLoading(false);
-        }
+    const handleGetCommentary = useCallback(async () => {
+        if (!user) { openLoginModal(); return; }
+        if (!selectedSuggestion) { setErrorMessage('Please select a suggestion first.'); return; }
+        
+        setCommentaryLoading(true);
+        setCommentary(t('generating', lang));
+        try {
+            const promptText = `Commentary for: ${selectedSuggestion.verse}`;
+            const text = await callGeminiAPI(promptText);
+            setCommentary(text);
+        } catch (error) {
+            setCommentary('Failed to generate');
+        } finally {
+            setCommentaryLoading(false);
+        }
 
-    }, [selectedMemo, selectedSuggestion, canGenerateCommentary, setCommentary, setErrorMessage, lang, onLimitReached, user, openLoginModal, userId, commentaryCount]);
+    }, [selectedMemo, selectedSuggestion, setCommentary, setErrorMessage, lang, onLimitReached, user, openLoginModal, userId, commentaryCount]);
 
-    const handleGenerateSermon = useCallback(async () => {
-        if (!user) { openLoginModal(); return; }
-        if (!selectedMemo || !selectedSuggestion || commentary.trim() === '') { setErrorMessage(t('missingMemoAndCommentary', lang)); return; }
+    const handleGenerateSermon = useCallback(async () => {
+        if (!user) { openLoginModal(); return; }
+        if (!selectedMemo || !selectedSuggestion || commentary.trim() === '') { setErrorMessage(t('missingMemoAndCommentary', lang)); return; }
 
-        const promptText = `Based on the following memo, scripture, and commentary, write a detailed sermon in ${lang === 'ko' ? 'Korean' : 'English'}. Memo: "${selectedMemo.content}". Scripture: "${selectedSuggestion.verse}". Commentary: "${commentary}"`;
-        await generateSermon(promptText, 'sermon');
-    }, [selectedMemo, selectedSuggestion, commentary, generateSermon, setErrorMessage, user, openLoginModal, lang]);
+        const promptText = `Based on the following memo, scripture, and commentary, write a detailed sermon in ${lang === 'ko' ? 'Korean' : 'English'}. Memo: "${selectedMemo.content}". Scripture: "${selectedSuggestion.verse}". Commentary: "${commentary}"`;
+        await generateSermon(promptText, 'sermon');
+    }, [selectedMemo, selectedSuggestion, commentary, generateSermon, setErrorMessage, user, openLoginModal, lang]);
 
-    return (
-        <div className="flex flex-col items-center space-y-4 max-w-2xl mx-auto w-full">
-            <h2 className="text-4xl font-extrabold text-gray-800">{t('quickMemoSermonTitle', lang)}</h2>
-            <p className="text-lg text-gray-600 mb-4">{t('quickMemoDescription', lang)}</p>
+    return (
+        <div className="flex flex-col items-center space-y-4 max-w-2xl mx-auto w-full">
+            <h2 className="text-4xl font-extrabold text-gray-800">{t('quickMemoSermonTitle', lang)}</h2>
+            <p className="text-lg text-gray-600 mb-4">{t('quickMemoDescription', lang)}</p>
 
-            {userSubscription !== 'premium' && (
-                <p className="text-sm text-gray-500 mb-4">
-                    {t('sermonLimit', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))}
-                </p>
-            )}
+            {userSubscription !== 'premium' && (
+                <p className="text-sm text-gray-500 mb-4">
+                    {t('sermonLimit', lang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].sermon - sermonCount))}
+                </p>
+            )}
 
-            <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left">
-                <p className="font-semibold text-gray-800 mb-2">{t('myMemos', lang)}</p>
-                <ul className="space-y-2">
-                    {memos.length > 0 ? (
-                        memos.map(memo => (
-                            <li key={memo.id} className={`p-3 rounded-lg cursor-pointer transition ${selectedMemo && selectedMemo.id === memo.id ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
-                                onClick={() => handleToggleMemo(memo)}>
-                                {memo.content}
-                            </li>
-                        ))
-                    ) : (
-                        <p className="text-gray-500">{t('noMemos', lang)}</p>
-                    )}
-                </ul>
-            </div>
+            <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left">
+                <p className="font-semibold text-gray-800 mb-2">{t('myMemos', lang)}</p>
+                <ul className="space-y-2">
+                    {memos.length > 0 ? (
+                        memos.map(memo => (
+                            <li key={memo.id} className={`p-3 rounded-lg cursor-pointer transition ${selectedMemo && selectedMemo.id === memo.id ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
+                                onClick={() => handleToggleMemo(memo)}>
+                                {memo.content}
+                            </li>
+                        ))
+                    ) : (
+                        <p className="text-gray-500">{t('noMemos', lang)}</p>
+                    )}
+                </ul>
+            </div>
 
-            {selectedMemo && suggestionsLoading && (
-                <div className="w-full p-4 rounded-xl bg-gray-100 text-center">
-                    <p className="text-gray-600">{t('generating', lang)}</p>
-                </div>
-            )}
-            
-            {suggestions.length > 0 && (
-                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left">
-                    <p className="font-semibold text-gray-800 mb-2">{t('aiSuggestions', lang)}</p>
-                    <ul className="space-y-2">
-                        {suggestions.map((sug, index) => (
-                            <li key={index} className={`p-3 rounded-lg cursor-pointer transition ${selectedSuggestion && selectedSuggestion.verse === sug.verse ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
-                                onClick={() => setSelectedSuggestion(sug)}>
-                                <p className="font-semibold">{sug.verse}</p>
-                                <p className="text-sm">{sug.theme}</p>
-                            </li>
-                        ))}
-                    </ul>
-                    <button
-                        onClick={handleGetCommentary}
-                        className="mt-4 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
-                        disabled={!selectedSuggestion || commentaryLoading}
-                    >
-                        {commentaryLoading ? t('generating', lang) : t('getCommentary', lang)}
-                    </button>
-                </div>
-            )}
-            
-            {commentary && (
-                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left whitespace-pre-wrap">
-                    <p className="font-semibold text-gray-800 mb-2">{t('aiCommentaryTitle', lang)}</p>
-                    <p className="text-gray-600">{commentary}</p>
-                    <button
-                        onClick={async () => {
-                            if (!user) { openLoginModal(); return; }
-                            const promptText = `Based on the following commentary, write a detailed sermon in ${lang === 'ko' ? 'Korean' : 'English'}. Note: "${commentary}"`;
-                            await generateSermon(promptText, 'sermon');
-                        }}
-                        className="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
-                        disabled={!canGenerateSermon || sermonIsLoading || commentary.trim() === ''}
-                    >
-                        {sermonIsLoading ? t('generating', lang) : t('generateSermonFromMemo', lang)}
-                    </button>
-                </div>
-            )}
-            
-            {setSermonDraft && (
-                 <button
-                    onClick={() => reviseDraft(window.getSelection().toString().trim())}
-                    className="mt-4 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-xl shadow-lg transition duration-300 w-full"
-                    disabled={sermonIsLoading}
-                   >
-                    {t('editWithAiTitle', lang)}
-                   </button>
-            )}
-        </div>
-    );
+            {selectedMemo && suggestionsLoading && (
+                <div className="w-full p-4 rounded-xl bg-gray-100 text-center">
+                    <p className="text-gray-600">{t('generating', lang)}</p>
+                </div>
+            )}
+            
+            {suggestions.length > 0 && (
+                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left">
+                    <p className="font-semibold text-gray-800 mb-2">{t('aiSuggestions', lang)}</p>
+                    <ul className="space-y-2">
+                        {suggestions.map((sug, index) => (
+                            <li key={index} className={`p-3 rounded-lg cursor-pointer transition ${selectedSuggestion && selectedSuggestion.verse === sug.verse ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300 text-gray-800'}`}
+                                onClick={() => setSelectedSuggestion(sug)}>
+                                <p className="font-semibold">{sug.verse}</p>
+                                <p className="text-sm">{sug.theme}</p>
+                            </li>
+                        ))}
+                    </ul>
+                    <button
+                        onClick={handleGetCommentary}
+                        className="mt-4 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
+                        disabled={!selectedSuggestion || commentaryLoading}
+                    >
+                        {commentaryLoading ? t('generating', lang) : t('getCommentary', lang)}
+                    </button>
+                </div>
+            )}
+            
+            {commentary && (
+                <div className="w-full p-4 rounded-xl bg-white border border-gray-300 text-left whitespace-pre-wrap">
+                    <p className="font-semibold text-gray-800 mb-2">{t('aiCommentaryTitle', lang)}</p>
+                    <p className="text-gray-600">{commentary}</p>
+                    <button
+                        onClick={async () => {
+                            if (!user) { openLoginModal(); return; }
+                            const promptText = `Based on the following commentary, write a detailed sermon in ${lang === 'ko' ? 'Korean' : 'English'}. Note: "${commentary}"`;
+                            await generateSermon(promptText, 'sermon');
+                        }}
+                        className="mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400 w-full"
+                        disabled={!canGenerateSermon || sermonIsLoading || commentary.trim() === ''}
+                    >
+                        {sermonIsLoading ? t('generating', lang) : t('generateSermonFromMemo', lang)}
+                    </button>
+                </div>
+            )}
+            
+            {setSermonDraft && (
+                 <button
+                    onClick={() => reviseDraft(window.getSelection().toString().trim())}
+                    className="mt-4 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-xl shadow-lg transition duration-300 w-full"
+                    disabled={sermonIsLoading}
+                   >
+                    {t('editWithAiTitle', lang)}
+                   </button>
+            )}
+        </div>
+    );
 };
+
 
 // SermonAssistantComponent (main component)
 const SermonAssistantComponent = ({ sermonInput, setSermonInput, sermonDraft, setSermonDraft, errorMessage, setErrorMessage, toggleFullscreen, userSubscription, commentaryCount, sermonCount, userId, lang, setLang, selectedSermonType, setSelectedSermonType, openLoginModal, user }) => {
-    
-    const [memos, setMemos] = useState([]);
-    const [quickMemoModalOpen, setQuickMemoModalOpen] = useState(false);
-    const [memoCountToday, setMemoCountToday] = useState(0);
+    
+    const [memos, setMemos] = useState([]);
+    const [quickMemoModalOpen, setQuickMemoModalOpen] = useState(false);
+    const [memoCountToday, setMemoCountToday] = useState(0);
 
-    const currentLang = lang;
+    const currentLang = lang;
 
-    useEffect(() => {
-        if (!user) return;
-        const memosCollection = collection(db, 'quickMemos');
-        const startOfToday = new Date();
-        startOfToday.setHours(0, 0, 0, 0);
-        const q = query(
-            memosCollection,
-            where('userId', '==', user.uid),
-            where('timestamp', '>=', startOfToday),
-            orderBy('timestamp', 'desc')
-        );
-        const unsubscribe = onSnapshot(q, (snapshot) => {
-            const memosList = snapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data()
-            }));
-            setMemos(memosList);
-            setMemoCountToday(memosList.length);
-        });
-        return () => unsubscribe();
-    }, [user]);
+    useEffect(() => {
+        if (!user) return;
+        const memosCollection = collection(db, 'quickMemos');
+        const startOfToday = new Date();
+        startOfToday.setHours(0, 0, 0, 0);
+        const q = query(
+            memosCollection,
+            where('userId', '==', user.uid),
+            where('timestamp', '>=', startOfToday),
+            orderBy('timestamp', 'desc')
+        );
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const memosList = snapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            setMemos(memosList);
+            setMemoCountToday(memosList.length);
+        });
+        return () => unsubscribe();
+    }, [user]);
 
-    const canGenerateCommentary = userSubscription === 'premium' || commentaryCount < SUBSCRIPTION_LIMITS[userSubscription].commentary;
-    const canGenerateSermon = userSubscription === 'premium' || sermonCount < SUBSCRIPTION_LIMITS[userSubscription].sermon;
-    const [chatHistory, setChatHistory] = useState([]);
-    const sermonRef = useRef(null);
+    const canGenerateCommentary = userSubscription === 'premium' || commentaryCount < SUBSCRIPTION_LIMITS[userSubscription].commentary;
+    const canGenerateSermon = userSubscription === 'premium' || sermonCount < SUBSCRIPTION_LIMITS[userSubscription].sermon;
+    const [chatHistory, setChatHistory] = useState([]);
+    const sermonRef = useRef(null);
 
-    const { generateSermon, reviseDraft, isLoading } = useSermonGeneration(userId, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, currentLang, user, openLoginModal, () => setSelectedSermonType('premium-subscription'), sermonCount, commentaryCount, userSubscription);
+    const { generateSermon, reviseDraft, isLoading } = useSermonGeneration(userId, setSermonDraft, setErrorMessage, canGenerateSermon, canGenerateCommentary, currentLang, user, openLoginModal, () => setSelectedSermonType('premium-subscription'), sermonCount, commentaryCount, userSubscription);
 
-    useEffect(() => {
-        if (sermonDraft && sermonRef.current) {
-            sermonRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, [sermonDraft]);
+    useEffect(() => {
+        if (sermonDraft && sermonRef.current) {
+            sermonRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [sermonDraft]);
 
-    const handleSendMessage = useCallback(async () => {
-        if (!user) { openLoginModal(); return; }
-        if (!canGenerateCommentary) { setErrorMessage(t('commentaryLimitError', currentLang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))); setSelectedSermonType('premium-subscription'); return; }
-        if (sermonInput.trim() === '') { setErrorMessage(t('enterMessage', currentLang)); return; }
+    const handleSendMessage = useCallback(async () => {
+        if (!user) { openLoginModal(); return; }
+        if (!canGenerateCommentary) { setErrorMessage(t('commentaryLimitError', currentLang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))); setSelectedSermonType('premium-subscription'); return; }
+        if (sermonInput.trim() === '') { setErrorMessage(t('enterMessage', currentLang)); return; }
 
-        const newChatHistory = [...chatHistory, { role: 'user', text: sermonInput }];
-        setChatHistory(newChatHistory);
-        setSermonInput('');
-        setErrorMessage('');
+        const newChatHistory = [...chatHistory, { role: 'user', text: sermonInput }];
+        setChatHistory(newChatHistory);
+        setSermonInput('');
+        setErrorMessage('');
 
-        try {
-            const fullChatPrompt = newChatHistory.map(chat => `${chat.role === 'user' ? 'User' : 'Assistant'}: ${chat.text}`).join('\n');
-            const promptText = `${fullChatPrompt}\nAssistant:`;
+        try {
+            const fullChatPrompt = newChatHistory.map(chat => `${chat.role === 'user' ? 'User' : 'Assistant'}: ${chat.text}`).join('\n');
+            const promptText = `${fullChatPrompt}\nAssistant:`;
 
-            const text = await callGeminiAPI(promptText);
+            const text = await callGeminiAPI(promptText);
 
-            if (text && typeof text === 'string') {
-                setChatHistory(prev => [...prev, { role: 'assistant', text: text }]);
-                await incrementUsageCount('commentary', userId, commentaryCount, setErrorMessage);
-            } else {
-                setChatHistory(prev => [...prev, { role: 'assistant', text: t('generationFailed', currentLang) }]);
-            }
-        } catch (error) {
-            setChatHistory(prev => [...prev, { role: 'assistant', text: t('generationFailed', currentLang) }]);
-            console.error(error);
-        }
-    }, [sermonInput, setSermonInput, setErrorMessage, canGenerateCommentary, chatHistory, currentLang, openLoginModal, user, setSelectedSermonType, userId, commentaryCount, userSubscription]);
+            if (text && typeof text === 'string') {
+                setChatHistory(prev => [...prev, { role: 'assistant', text: text }]);
+                await incrementUsageCount('commentary', userId, commentaryCount, setErrorMessage);
+            } else {
+                setChatHistory(prev => [...prev, { role: 'assistant', text: t('generationFailed', currentLang) }]);
+            }
+        } catch (error) {
+            setChatHistory(prev => [...prev, { role: 'assistant', text: t('generationFailed', currentLang) }]);
+            console.error(error);
+        }
+    }, [sermonInput, setSermonInput, setErrorMessage, canGenerateCommentary, chatHistory, currentLang, openLoginModal, user, setSelectedSermonType, userId, commentaryCount, userSubscription]);
 
-    const handleGenerateSermonFromChat = useCallback(async () => {
-        if (chatHistory.length === 0) { setErrorMessage(t('noConversationError', currentLang)); return; }
-        
-        const fullChatPrompt = chatHistory.map(chat => `${chat.role === 'user' ? 'User' : 'Assistant'}: ${chat.text}`).join('\n');
-        const promptText = `Based on the following conversation, write a detailed sermon: "${fullChatPrompt}"`;
+    const handleGenerateSermonFromChat = useCallback(async () => {
+        if (chatHistory.length === 0) { setErrorMessage(t('noConversationError', currentLang)); return; }
+        
+        const fullChatPrompt = chatHistory.map(chat => `${chat.role === 'user' ? 'User' : 'Assistant'}: ${chat.text}`).join('\n');
+        const promptText = `Based on the following conversation, write a detailed sermon: "${fullChatPrompt}"`;
 
-        await generateSermon(promptText, 'sermon');
-        
-    }, [chatHistory, generateSermon, setErrorMessage, currentLang]);
+        await generateSermon(promptText, 'sermon');
+        
+    }, [chatHistory, generateSermon, setErrorMessage, currentLang]);
 
-    const handleSelectText = useCallback(() => {
-        const selection = window.getSelection();
-        const selectedText = selection.toString().trim();
-        if (selectedText.length > 0) {
-            setSermonDraft(prevDraft =>
-                prevDraft ? prevDraft + '\n\n' + selectedText : selectedText
-            );
-        }
-    }, [setSermonDraft]);
-    
-    const handleLimitReached = useCallback(() => {
-        setSelectedSermonType('premium-subscription');
-    }, [setSelectedSermonType]);
+    const handleSelectText = useCallback(() => {
+        const selection = window.getSelection();
+        const selectedText = selection.toString().trim();
+        if (selectedText.length > 0) {
+            setSermonDraft(prevDraft =>
+                prevDraft ? prevDraft + '\n\n' + selectedText : selectedText
+            );
+        }
+    }, [setSermonDraft]);
+    
+    const handleLimitReached = useCallback(() => {
+        setSelectedSermonType('premium-subscription');
+    }, [setSelectedSermonType]);
 
-    const handleAddMemo = useCallback(async (content) => {
-        if (!user) { openLoginModal(); return; }
-        const currentMemoCount = await checkDailyMemoLimit(user.uid);
-        if (currentMemoCount >= 5) {
-            setErrorMessage(t('memoLimitReached', currentLang, 5));
-            return;
-        }
-        try {
-            await addQuickMemo(user.uid, content);
-            setSelectedSermonType('quick-memo-sermon');
-        } catch (error) {
-            setErrorMessage(t('failedToSaveMemo', currentLang));
-            console.error(error);
-        }
-    }, [user, openLoginModal, setErrorMessage, currentLang, setSelectedSermonType]);
+    const handleAddMemo = useCallback(async (content) => {
+        if (!user) { openLoginModal(); return; }
+        const currentMemoCount = await checkDailyMemoLimit(user.uid);
+        if (currentMemoCount >= 5) {
+            setErrorMessage(t('memoLimitReached', currentLang, 5));
+            return;
+        }
+        try {
+            await addQuickMemo(user.uid, content);
+            setSelectedSermonType('quick-memo-sermon');
+        } catch (error) {
+            setErrorMessage(t('failedToSaveMemo', currentLang));
+            console.error(error);
+        }
+    }, [user, openLoginModal, setErrorMessage, currentLang, setSelectedSermonType]);
 
 
-    const renderSermonType = () => {
-        switch (selectedSermonType) {
-            case 'sermon-assistant':
-                return (
-                    <div className="text-center">
-                        <h2 className="text-4xl font-extrabold text-gray-800">{t('sermonAssistantTitle', currentLang)}</h2>
-                        <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">{t('assistantDescription', currentLang)}</p>
-                        {userSubscription !== 'premium' && (
-                            <p className="text-sm text-gray-500 mb-4">
-                                {t('commentaryLimit', currentLang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))}
-                            </p>
-                        )}
-                        {errorMessage && (
-                            <div className="bg-red-200 text-red-800 p-4 rounded-xl mb-4 max-w-2xl mx-auto">
-                                {t('errorMessage', currentLang, errorMessage)}
-                            </div>
-                        )}
-                        <div className="flex flex-col items-center space-y-4 max-w-2xl mx-auto w-full">
-                            <div className="w-full p-4 rounded-xl bg-gray-200 border border-gray-300 h-96 overflow-y-auto text-left whitespace-pre-wrap">
-                                {chatHistory.length === 0 ? (
-                                    <p className="text-gray-500">{t('initialPrompt', currentLang)}</p>
-                                ) : (
-                                    chatHistory.map((chat, index) => (
-                                        <div key={index} className={`mb-4 p-3 rounded-lg ${chat.role === 'user' ? 'bg-blue-100 text-right text-gray-800' : 'bg-white text-left text-gray-800'}`}
-                                            onMouseUp={chat.role === 'assistant' ? handleSelectText : undefined}>
-                                            <p className="font-semibold">{chat.role === 'user' ? (currentLang === 'ko' ? '나:' : 'You:') : (currentLang === 'ko' ? 'AI:' : 'AI:')}</p>
-                                            <p>{chat.text}</p>
-                                        </div>
-                                    ))
-                                )}
-                            </div>
-                            <div className="w-full flex space-x-2">
-                                <textarea
-                                    value={sermonInput}
-                                    onChange={(e) => setSermonInput(e.target.value)}
-                                    placeholder={t('inputPlaceholder', currentLang)}
-                                    className="flex-grow p-4 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                                    rows="2"
-                                />
-                                <button
-                                    onClick={handleSendMessage}
-                                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400"
-                                    disabled={!canGenerateCommentary || sermonInput.trim() === ''}
-                                >
-                                    {t('sendButton', currentLang)}
-                                </button>
-                            </div>
-                            <button
-                                onClick={handleGenerateSermonFromChat}
-                                className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 w-full"
-                                disabled={!canGenerateSermon || chatHistory.length === 0 || isLoading}
-                            >
-                                {isLoading ? t('generating', currentLang) : t('generateSermonFromChat', currentLang)}
-                            </button>
-                        </div>
-                    </div>
-                );
-            case 'expository-sermon':
-                return <ExpositorySermonComponent {...{ setSermonDraft, userId, commentaryCount, userSubscription, setErrorMessage, lang: currentLang, user, openLoginModal, onLimitReached: handleLimitReached, sermonCount, canGenerateSermon, canGenerateCommentary }} />;
-            case 'real-life-sermon':
-                return <RealLifeSermonComponent {...{ setSermonDraft, userId, sermonCount, userSubscription, setErrorMessage, lang: currentLang, user, openLoginModal, onLimitReached: handleLimitReached, canGenerateSermon }} />;
-            case 'quick-memo-sermon':
-                return <QuickMemoSermonComponent {...{ setSermonDraft, userId, sermonCount, userSubscription, setErrorMessage, lang: currentLang, user, openLoginModal, onLimitReached: handleLimitReached, memos, commentaryCount, canGenerateSermon, canGenerateCommentary }} />;
-            case 'premium-subscription':
-                return <PremiumSubscriptionPage onGoBack={() => setSelectedSermonType('sermon-selection')} />;
-            case 'sermon-selection':
-                return (
-                    <div className="text-center space-y-8">
-                        <h2 className="text-4xl font-extrabold text-gray-800">{t('chooseSermonType', currentLang)}</h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t('chooseSermonTypeDescription', currentLang)}</p>
-                        <div className="bg-blue-100 p-6 rounded-xl text-gray-800 max-w-3xl mx-auto border border-blue-200 shadow-md">
-                            <p className="text-lg font-semibold">{t('multilingualPromo', currentLang)}</p>
-                            <p className="text-sm text-gray-600 mt-2">
-                                ({t('language', currentLang)}: {t('korean', currentLang)}, {t('english', currentLang)}, {t('chinese', currentLang)}, {t('japanese', currentLang)}, {t('russian', currentLang)}, {t('vietnamese', currentLang)})
-                            </p>
-                        </div>
-                        <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
-                            <button onClick={user ? () => setSelectedSermonType('sermon-assistant') : openLoginModal} className="w-full p-8 bg-white rounded-2xl transition duration-300 transform hover:scale-105 shadow-md group hover:bg-gray-50 flex items-center space-x-6 border border-gray-200">
-                                <PlusCircleIcon className="w-12 h-12 text-blue-500 group-hover:text-blue-600 transition-colors flex-shrink-0"/>
-                                <div className="text-left">
-                                    <h3 className="text-2xl font-bold text-gray-800">{t('sermonAssistantTitle', currentLang)}</h3>
-                                    <p className="mt-1 text-sm text-gray-600">{t('sermonAssistantIntro', currentLang)}</p>
-                                </div>
-                            </button>
-                            <button onClick={user ? () => setSelectedSermonType('expository-sermon') : openLoginModal} className="w-full p-8 bg-white rounded-2xl transition duration-300 transform hover:scale-105 shadow-md group hover:bg-gray-50 flex items-center space-x-6 border border-gray-200">
-                                <SearchIcon className="w-12 h-12 text-green-500 group-hover:text-green-600 transition-colors flex-shrink-0"/>
-                                <div className="text-left">
-                                    <h3 className="mt-1 text-2xl font-bold text-gray-800">{t('expositorySermonTitle', currentLang)}</h3>
-                                    <p className="mt-1 text-sm text-gray-600">{t('expositoryIntro', currentLang)}</p>
-                                </div>
-                            </button>
-                            <button onClick={user ? () => setSelectedSermonType('real-life-sermon') : openLoginModal} className="w-full p-8 bg-white rounded-2xl transition duration-300 transform hover:scale-105 shadow-md group hover:bg-gray-50 flex items-center space-x-6 border border-gray-200">
-                                <RealLifeIcon className="w-12 h-12 text-purple-500 group-hover:text-purple-600 transition-colors flex-shrink-0"/>
-                                <div className="text-left">
-                                    <h3 className="mt-1 text-2xl font-bold text-gray-800">{t('realLifeSermonTitle', currentLang)}</h3>
-                                    <p className="mt-1 text-sm text-gray-600">{t('realLifeIntro', currentLang)}</p>
-                                </div>
-                            </button>
-                            <button onClick={user ? () => setSelectedSermonType('quick-memo-sermon') : openLoginModal} className="w-full p-8 bg-white rounded-2xl transition duration-300 transform hover:scale-105 shadow-md group hover:bg-gray-50 flex items-center space-x-6 border border-gray-200">
-                                <QuickMemoIcon className="w-12 h-12 text-yellow-500 group-hover:text-yellow-600 transition-colors flex-shrink-0"/>
-                                <div className="text-left">
-                                    <h3 className="mt-1 text-2xl font-bold text-gray-800">{t('quickMemoSermonTitle', currentLang)}</h3>
-                                    <p className="mt-1 text-sm text-gray-600">{t('quickMemoIntro', currentLang)}</p>
-                                </div>
-                            </button>
-                        </div>
-                        <div className="mt-12">
-                                 <button
-                                    onClick={user ? () => setSelectedSermonType('premium-subscription') : openLoginModal}
-                                    className="px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg transition duration-300 text-2xl"
-                                >
-                                    {t('upgradeToPremium', currentLang)}
-                                </button>
-                        </div>
-                    </div>
-                );
-            default:
-                return null;
-        }
-    };
-    
-    return (
-        <div className="min-h-screen bg-gray-100 text-gray-800 font-sans">
-            <header className="p-6 bg-white border-b border-gray-200 flex items-center justify-between shadow-sm">
-                <div className="flex items-center space-x-4">
-                    <Link href="/sermon-selection" passHref>
-                        <h1 className="text-3xl font-extrabold text-gray-900 cursor-pointer">SermonNote</h1>
-                    </Link>
-                </div>
-                <div className="flex items-center space-x-4">
-                    {user && (
-                        <p className="text-sm text-gray-600 hidden sm:block">{t('welcome', currentLang, user.email)}</p>
-                    )}
-                    <select
-                        onChange={(e) => setLang(e.target.value)}
-                        value={currentLang}
-                        className="bg-gray-100 text-gray-800 rounded-lg p-2 border border-gray-300"
-                    >
-                        <option value="ko">한국어</option>
-                        <option value="en">English</option>
-                        <option value="zh">中文</option>
-                        <option value="ja">日本語</option>
-                        <option value="ru">Русский</option>
-                        <option value="vi">Tiếng Việt</option>
-                        <option value="fil">Filipino</option>
-                    </select>
-                </div>
-            </header>
-            <main className="container mx-auto p-8">
-                {renderSermonType()}
-                {sermonDraft && (
-                    <div ref={sermonRef} className="mt-12 text-left max-w-3xl mx-auto w-full">
-                        <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-2xl font-bold text-gray-900">{t('generatedSermonTitle', currentLang)}</h3>
-                            <button onClick={() => toggleFullscreen(sermonDraft)} className="text-gray-500 hover:text-gray-900 transition">
-                                <FullscreenIcon />
-                            </button>
-                        </div>
-                        <textarea
-                            value={sermonDraft}
-                            onChange={(e) => setSermonDraft(e.target.value)}
-                            rows={15}
-                            className="w-full p-6 rounded-2xl bg-white border border-gray-300 text-gray-800 resize-none shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-                )}
-            </main>
+    const renderSermonType = () => {
+        switch (selectedSermonType) {
+            case 'sermon-assistant':
+                return (
+                    <div className="text-center">
+                        <h2 className="text-4xl font-extrabold text-gray-800">{t('sermonAssistantTitle', currentLang)}</h2>
+                        <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">{t('assistantDescription', currentLang)}</p>
+                        {userSubscription !== 'premium' && (
+                            <p className="text-sm text-gray-500 mb-4">
+                                {t('commentaryLimit', currentLang, Math.max(0, SUBSCRIPTION_LIMITS[userSubscription].commentary - commentaryCount))}
+                            </p>
+                        )}
+                        {errorMessage && (
+                            <div className="bg-red-200 text-red-800 p-4 rounded-xl mb-4 max-w-2xl mx-auto">
+                                {t('errorMessage', currentLang, errorMessage)}
+                            </div>
+                        )}
+                        <div className="flex flex-col items-center space-y-4 max-w-2xl mx-auto w-full">
+                            <div className="w-full p-4 rounded-xl bg-gray-200 border border-gray-300 h-96 overflow-y-auto text-left whitespace-pre-wrap">
+                                {chatHistory.length === 0 ? (
+                                    <p className="text-gray-500">{t('initialPrompt', currentLang)}</p>
+                                ) : (
+                                    chatHistory.map((chat, index) => (
+                                        <div key={index} className={`mb-4 p-3 rounded-lg ${chat.role === 'user' ? 'bg-blue-100 text-right text-gray-800' : 'bg-white text-left text-gray-800'}`}
+                                            onMouseUp={chat.role === 'assistant' ? handleSelectText : undefined}>
+                                            <p className="font-semibold">{chat.role === 'user' ? (currentLang === 'ko' ? '나:' : 'You:') : (currentLang === 'ko' ? 'AI:' : 'AI:')}</p>
+                                            <p>{chat.text}</p>
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                            <div className="w-full flex space-x-2">
+                                <textarea
+                                    value={sermonInput}
+                                    onChange={(e) => setSermonInput(e.target.value)}
+                                    placeholder={t('inputPlaceholder', currentLang)}
+                                    className="flex-grow p-4 rounded-xl bg-white border border-gray-300 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                                    rows="2"
+                                />
+                                <button
+                                    onClick={handleSendMessage}
+                                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 disabled:bg-gray-400"
+                                    disabled={!canGenerateCommentary || sermonInput.trim() === ''}
+                                >
+                                    {t('sendButton', currentLang)}
+                                </button>
+                            </div>
+                            <button
+                                onClick={handleGenerateSermonFromChat}
+                                className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-lg transition duration-300 w-full"
+                                disabled={!canGenerateSermon || chatHistory.length === 0 || isLoading}
+                            >
+                                {isLoading ? t('generating', currentLang) : t('generateSermonFromChat', currentLang)}
+                            </button>
+                        </div>
+                    </div>
+                );
+            case 'expository-sermon':
+                return <ExpositorySermonComponent {...{ setSermonDraft, userId, commentaryCount, userSubscription, setErrorMessage, lang: currentLang, user, openLoginModal, onLimitReached: handleLimitReached, sermonCount, canGenerateSermon, canGenerateCommentary }} />;
+            case 'real-life-sermon':
+                return <RealLifeSermonComponent {...{ setSermonDraft, userId, sermonCount, userSubscription, setErrorMessage, lang: currentLang, user, openLoginModal, onLimitReached: handleLimitReached, canGenerateSermon }} />;
+            case 'quick-memo-sermon':
+                return <QuickMemoSermonComponent {...{ setSermonDraft, userId, sermonCount, userSubscription, setErrorMessage, lang: currentLang, user, openLoginModal, onLimitReached: handleLimitReached, memos, commentaryCount, canGenerateSermon, canGenerateCommentary }} />;
+            case 'premium-subscription':
+                return <PremiumSubscriptionPage onGoBack={() => setSelectedSermonType('sermon-selection')} />;
+            case 'sermon-selection':
+                return (
+                    <div className="text-center space-y-8">
+                        <h2 className="text-4xl font-extrabold text-gray-800">{t('chooseSermonType', currentLang)}</h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t('chooseSermonTypeDescription', currentLang)}</p>
+                        <div className="bg-blue-100 p-6 rounded-xl text-gray-800 max-w-3xl mx-auto border border-blue-200 shadow-md">
+                            <p className="text-lg font-semibold">{t('multilingualPromo', currentLang)}</p>
+                            <p className="text-sm text-gray-600 mt-2">
+                                ({t('language', currentLang)}: {t('korean', currentLang)}, {t('english', currentLang)}, {t('chinese', currentLang)}, {t('japanese', currentLang)}, {t('russian', currentLang)}, {t('vietnamese', currentLang)})
+                            </p>
+                        </div>
+                        <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
+                            <button onClick={user ? () => setSelectedSermonType('sermon-assistant') : openLoginModal} className="w-full p-8 bg-white rounded-2xl transition duration-300 transform hover:scale-105 shadow-md group hover:bg-gray-50 flex items-center space-x-6 border border-gray-200">
+                                <PlusCircleIcon className="w-12 h-12 text-blue-500 group-hover:text-blue-600 transition-colors flex-shrink-0"/>
+                                <div className="text-left">
+                                    <h3 className="text-2xl font-bold text-gray-800">{t('sermonAssistantTitle', currentLang)}</h3>
+                                    <p className="mt-1 text-sm text-gray-600">{t('sermonAssistantIntro', currentLang)}</p>
+                                </div>
+                            </button>
+                            <button onClick={user ? () => setSelectedSermonType('expository-sermon') : openLoginModal} className="w-full p-8 bg-white rounded-2xl transition duration-300 transform hover:scale-105 shadow-md group hover:bg-gray-50 flex items-center space-x-6 border border-gray-200">
+                                <SearchIcon className="w-12 h-12 text-green-500 group-hover:text-green-600 transition-colors flex-shrink-0"/>
+                                <div className="text-left">
+                                    <h3 className="mt-1 text-2xl font-bold text-gray-800">{t('expositorySermonTitle', currentLang)}</h3>
+                                    <p className="mt-1 text-sm text-gray-600">{t('expositoryIntro', currentLang)}</p>
+                                </div>
+                            </button>
+                            <button onClick={user ? () => setSelectedSermonType('real-life-sermon') : openLoginModal} className="w-full p-8 bg-white rounded-2xl transition duration-300 transform hover:scale-105 shadow-md group hover:bg-gray-50 flex items-center space-x-6 border border-gray-200">
+                                <RealLifeIcon className="w-12 h-12 text-purple-500 group-hover:text-purple-600 transition-colors flex-shrink-0"/>
+                                <div className="text-left">
+                                    <h3 className="mt-1 text-2xl font-bold text-gray-800">{t('realLifeSermonTitle', currentLang)}</h3>
+                                    <p className="mt-1 text-sm text-gray-600">{t('realLifeIntro', currentLang)}</p>
+                                </div>
+                            </button>
+                            <button onClick={user ? () => setSelectedSermonType('quick-memo-sermon') : openLoginModal} className="w-full p-8 bg-white rounded-2xl transition duration-300 transform hover:scale-105 shadow-md group hover:bg-gray-50 flex items-center space-x-6 border border-gray-200">
+                                <QuickMemoIcon className="w-12 h-12 text-yellow-500 group-hover:text-yellow-600 transition-colors flex-shrink-0"/>
+                                <div className="text-left">
+                                    <h3 className="mt-1 text-2xl font-bold text-gray-800">{t('quickMemoSermonTitle', currentLang)}</h3>
+                                    <p className="mt-1 text-sm text-gray-600">{t('quickMemoIntro', currentLang)}</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div className="mt-12">
+                                 <button
+                                    onClick={user ? () => setSelectedSermonType('premium-subscription') : openLoginModal}
+                                    className="px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg transition duration-300 text-2xl"
+                                >
+                                    {t('upgradeToPremium', currentLang)}
+                                </button>
+                        </div>
+                    </div>
+                );
+            default:
+                return null;
+        }
+    };
+    
+    return (
+        <div className="min-h-screen bg-gray-100 text-gray-800 font-sans">
+            <header className="p-6 bg-white border-b border-gray-200 flex items-center justify-between shadow-sm">
+                <div className="flex items-center space-x-4">
+                    <Link href="/sermon-selection" passHref>
+                        <h1 className="text-3xl font-extrabold text-gray-900 cursor-pointer">SermonNote</h1>
+                    </Link>
+                </div>
+                <div className="flex items-center space-x-4">
+                    {user && (
+                        <p className="text-sm text-gray-600 hidden sm:block">{t('welcome', currentLang, user.email)}</p>
+                    )}
+                    <select
+                        onChange={(e) => setLang(e.target.value)}
+                        value={currentLang}
+                        className="bg-gray-100 text-gray-800 rounded-lg p-2 border border-gray-300"
+                    >
+                        <option value="ko">한국어</option>
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ru">Русский</option>
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="fil">Filipino</option>
+                    </select>
+                </div>
+            </header>
+            <main className="container mx-auto p-8">
+                {renderSermonType()}
+                {sermonDraft && (
+                    <div ref={sermonRef} className="mt-12 text-left max-w-3xl mx-auto w-full">
+                        <div className="flex justify-between items-center mb-4">
+                            <h3 className="text-2xl font-bold text-gray-900">{t('generatedSermonTitle', currentLang)}</h3>
+                            <button onClick={() => toggleFullscreen(sermonDraft)} className="text-gray-500 hover:text-gray-900 transition">
+                                <FullscreenIcon />
+                            </button>
+                        </div>
+                        <textarea
+                            value={sermonDraft}
+                            onChange={(e) => setSermonDraft(e.target.value)}
+                            rows={15}
+                            className="w-full p-6 rounded-2xl bg-white border border-gray-300 text-gray-800 resize-none shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
+                )}
+            </main>
 
-            <button
-                onClick={() => setQuickMemoModalOpen(true)}
-                className="fixed bottom-8 right-8 p-5 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full shadow-2xl transition z-40 transform hover:scale-110"
-            >
-                <QuickMemoIcon className="w-6 h-6" />
-            </button>
+            <button
+                onClick={() => setQuickMemoModalOpen(true)}
+                className="fixed bottom-8 right-8 p-5 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full shadow-2xl transition z-40 transform hover:scale-110"
+            >
+                <QuickMemoIcon className="w-6 h-6" />
+            </button>
 
-            <QuickMemoModal
-                isOpen={quickMemoModalOpen}
-                onClose={() => setQuickMemoModalOpen(false)}
-                onAddMemo={handleAddMemo}
-                memoCount={memoCountToday}
-                memoLimit={5}
-                lang={currentLang}
-                openLoginModal={openLoginModal}
-                user={user}
-                onMemoAdded={() => setSelectedSermonType('quick-memo-sermon')}
-            />
-        </div>
-    );
+            <QuickMemoModal
+                isOpen={quickMemoModalOpen}
+                onClose={() => setQuickMemoModalOpen(false)}
+                onAddMemo={handleAddMemo}
+                memoCount={memoCountToday}
+                memoLimit={5}
+                lang={currentLang}
+                openLoginModal={openLoginModal}
+                user={user}
+                onMemoAdded={() => setSelectedSermonType('quick-memo-sermon')}
+            />
+        </div>
+    );
 };
 
 export default SermonAssistantComponent;
